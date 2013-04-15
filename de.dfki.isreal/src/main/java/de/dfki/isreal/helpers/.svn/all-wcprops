@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/IsReal/!svn/ver/2046/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/helpers
+END
+SparqlQMVisitor.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/helpers/SparqlQMVisitor.java
+END
+ExtensionFileFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/helpers/ExtensionFileFilter.java
+END
+KillProcessThread.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/IsReal/!svn/ver/2045/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/helpers/KillProcessThread.java
+END
+ConcurrentCounter.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/helpers/ConcurrentCounter.java
+END
+Profiler.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/helpers/Profiler.java
+END
+RestartComponentsThread.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/helpers/RestartComponentsThread.java
+END
+StatementHelpers.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/helpers/StatementHelpers.java
+END
+StreamGobblerLog4j.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/IsReal/!svn/ver/2046/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/helpers/StreamGobblerLog4j.java
+END
+SparqlQueryHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/helpers/SparqlQueryHelper.java
+END
+StreamGobbler.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/IsReal/!svn/ver/1991/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/helpers/StreamGobbler.java
+END

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="de.dfki.isreal.semantic">
+    <property environment="env"/>
+    <property name="HW.location" value="../HW"/>
+    <property name="ECLIPSE_HOME" value="../../eclipse-jee-indigo-SR2-win32-x86_64/eclipse"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="de.dfki.isreal.semantic.classpath">
+        <pathelement location="target/classes"/>
+        <pathelement location="libs/allegro-3.2.jar"/>
+        <pathelement location="libs/arq-2.8.1.jar"/>
+        <pathelement location="libs/com.ontotext.owlim-lite-4.1.jar"/>
+        <pathelement location="libs/common-2.4.0.jar"/>
+        <pathelement location="libs/core-2.0.0-rc7.jar"/>
+        <pathelement location="libs/de.dfki.isreal.omsconfig-0.0.1.jar"/>
+        <pathelement location="libs/de.dfki.isreal.planner-0.0.1.jar"/>
+        <pathelement location="libs/de.dfki.isreal.sparqldl-parser-0.0.1.jar"/>
+        <pathelement location="libs/ecore-2.4.2.jar"/>
+        <pathelement location="libs/ecore-xmi-2.4.1.jar"/>
+        <pathelement location="libs/javac-0.0.1.jar"/>
+        <pathelement location="libs/jena-2.0.0-rc7.jar"/>
+        <pathelement location="libs/jena-2.6.2.jar"/>
+        <pathelement location="libs/jetty-http-8.0.0.M0.jar"/>
+        <pathelement location="libs/jetty-io-8.0.0.M0.jar"/>
+        <pathelement location="libs/jetty-server-8.0.0.M0.jar"/>
+        <pathelement location="libs/jetty-util-8.0.0.M0.jar"/>
+        <pathelement location="libs/jetty-websocket-8.0.0.M0.jar"/>
+        <pathelement location="libs/log4j-1.2.15.jar"/>
+        <pathelement location="libs/naga.steinertrees.queries-0.0.1.jar"/>
+        <pathelement location="libs/ordi-model-0.5.jar"/>
+        <pathelement location="libs/ordi-trree-3.1.jar"/>
+        <pathelement location="libs/owlapi-2.2.0.jar"/>
+        <pathelement location="libs/platform-0.0.1.jar"/>
+        <pathelement location="libs/protobuf-java-2.0.3.jar"/>
+        <pathelement location="libs/query-2.0.0-rc7.jar"/>
+        <pathelement location="libs/servlet-api-2.3.jar"/>
+        <pathelement location="libs/sesame-2.4.2.jar"/>
+        <pathelement location="libs/slf4j-api-1.5.6.jar"/>
+        <pathelement location="libs/slf4j-log4j12-1.5.6.jar"/>
+        <pathelement location="libs/xercesImpl-2.7.1.jar"/>
+        <pathelement location="libs/xsdlip-0.0.1.jar"/>
+        <pathelement location="test.isreal-0.0.1.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="target/classes"/>
+        <copy includeemptydirs="false" todir="target/classes">
+            <fileset dir="src/main/java">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="target/classes">
+            <fileset dir="ext-libs">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="target/classes"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="target/classes" source="${source}" target="${target}">
+            <src path="src/main/java"/>
+            <classpath refid="de.dfki.isreal.semantic.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="target/classes" source="${source}" target="${target}">
+            <src path="ext-libs"/>
+            <classpath refid="de.dfki.isreal.semantic.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects">
+        <ant antfile="build.xml" dir="${HW.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${HW.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+    </target>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+</project>

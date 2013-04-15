@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.ui.externaltools.ProgramLaunchConfigurationType">
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="${workspace_loc:/de.dfki.isreal/tools/protoc_2.0.3/protoc.exe}"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-I=&quot;${workspace_loc}/de.dfki.isreal/src/de/dfki/isreal/network/protos/&quot; --java_out=&quot;${workspace_loc}/de.dfki.isreal/src/&quot; &quot;${workspace_loc}/de.dfki.isreal/src/de/dfki/isreal/network/protos/exchange_data.proto"/>
+</launchConfiguration>

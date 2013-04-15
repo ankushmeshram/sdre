@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="target/classes" path="src/main/java"/>
+	<classpathentry kind="src" path="ext-libs"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="libs/allegro-3.2.jar"/>
+	<classpathentry kind="lib" path="libs/arq-2.8.1.jar"/>
+	<classpathentry kind="lib" path="libs/com.ontotext.owlim-lite-4.1.jar"/>
+	<classpathentry kind="lib" path="libs/common-2.4.0.jar"/>
+	<classpathentry kind="lib" path="libs/core-2.0.0-rc7.jar"/>
+	<classpathentry kind="lib" path="libs/de.dfki.isreal.omsconfig-0.0.1.jar"/>
+	<classpathentry kind="lib" path="libs/de.dfki.isreal.planner-0.0.1.jar"/>
+	<classpathentry kind="lib" path="libs/de.dfki.isreal.sparqldl-parser-0.0.1.jar"/>
+	<classpathentry kind="lib" path="libs/ecore-2.4.2.jar"/>
+	<classpathentry kind="lib" path="libs/ecore-xmi-2.4.1.jar"/>
+	<classpathentry kind="lib" path="libs/javac-0.0.1.jar"/>
+	<classpathentry kind="lib" path="libs/jena-2.0.0-rc7.jar"/>
+	<classpathentry kind="lib" path="libs/jena-2.6.2.jar"/>
+	<classpathentry kind="lib" path="libs/jetty-http-8.0.0.M0.jar"/>
+	<classpathentry kind="lib" path="libs/jetty-io-8.0.0.M0.jar"/>
+	<classpathentry kind="lib" path="libs/jetty-server-8.0.0.M0.jar"/>
+	<classpathentry kind="lib" path="libs/jetty-util-8.0.0.M0.jar"/>
+	<classpathentry kind="lib" path="libs/jetty-websocket-8.0.0.M0.jar"/>
+	<classpathentry kind="lib" path="libs/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="libs/naga.steinertrees.queries-0.0.1.jar"/>
+	<classpathentry kind="lib" path="libs/ordi-model-0.5.jar"/>
+	<classpathentry kind="lib" path="libs/ordi-trree-3.1.jar"/>
+	<classpathentry kind="lib" path="libs/owlapi-2.2.0.jar"/>
+	<classpathentry kind="lib" path="libs/platform-0.0.1.jar"/>
+	<classpathentry kind="lib" path="libs/protobuf-java-2.0.3.jar"/>
+	<classpathentry kind="lib" path="libs/query-2.0.0-rc7.jar"/>
+	<classpathentry kind="lib" path="libs/servlet-api-2.3.jar"/>
+	<classpathentry kind="lib" path="libs/sesame-2.4.2.jar"/>
+	<classpathentry kind="lib" path="libs/slf4j-api-1.5.6.jar"/>
+	<classpathentry kind="lib" path="libs/slf4j-log4j12-1.5.6.jar"/>
+	<classpathentry kind="lib" path="libs/xercesImpl-2.7.1.jar"/>
+	<classpathentry kind="lib" path="libs/xsdlip-0.0.1.jar"/>
+	<classpathentry kind="lib" path="test.isreal-0.0.1.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

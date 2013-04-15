@@ -1,0 +1,197 @@
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl
+END
+GiveObjectService.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/GiveObjectService.java
+END
+cr_pill_to_writerService.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/cr_pill_to_writerService.java
+END
+OpenDoorService.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/OpenDoorService.java
+END
+CloseDoorService.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/CloseDoorService.java
+END
+cr_carriage_to_endService.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/cr_carriage_to_endService.java
+END
+SwitchOffMesseModulService.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/SwitchOffMesseModulService.java
+END
+SwitchOnMesseModulService.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/SwitchOnMesseModulService.java
+END
+CreateBluePillOnWorkbenchService.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/CreateBluePillOnWorkbenchService.java
+END
+cr_magazine_emptyService.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/cr_magazine_emptyService.java
+END
+TurnAroundService.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/TurnAroundService.java
+END
+WalkBackThroughDoorService.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/WalkBackThroughDoorService.java
+END
+cr_carriage_to_fillService.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/cr_carriage_to_fillService.java
+END
+MoveNearService.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/MoveNearService.java
+END
+cr_redlamp_off1Service.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/cr_redlamp_off1Service.java
+END
+WalkThroughDoorService.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/WalkThroughDoorService.java
+END
+cr_flip_slider_upService.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/cr_flip_slider_upService.java
+END
+cr_redlamp_off2Service.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/cr_redlamp_off2Service.java
+END
+cr_carriage_to_readerService.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/cr_carriage_to_readerService.java
+END
+cr_pill_to_sliderService.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/cr_pill_to_sliderService.java
+END
+cr_greenlamp_onService.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/cr_greenlamp_onService.java
+END
+WriteOnChipService.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/WriteOnChipService.java
+END
+cr_pill_to_fillService.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/cr_pill_to_fillService.java
+END
+cr_pill_to_cupService.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/cr_pill_to_cupService.java
+END
+cr_carriage_to_writerService.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/cr_carriage_to_writerService.java
+END
+FillMagazineService.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/FillMagazineService.java
+END
+CR_REDLAMP_ONService.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/CR_REDLAMP_ONService.java
+END
+cr_flip_slider_downService.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/cr_flip_slider_downService.java
+END
+cr_pill_to_readerService.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/cr_pill_to_readerService.java
+END
+cr_greenlamp_off1Service.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/cr_greenlamp_off1Service.java
+END
+cr_delete_chip_at_writerService.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/cr_delete_chip_at_writerService.java
+END
+cr_greenlamp_off2Service.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/cr_greenlamp_off2Service.java
+END
+cr_pill_to_endService.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/thread/impl/cr_pill_to_endService.java
+END

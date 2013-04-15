@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/subcomponents
+END
+ServiceRegistryDetails.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/subcomponents/ServiceRegistryDetails.java
+END
+Maintenance.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/subcomponents/Maintenance.java
+END
+SemanticReasoner.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/subcomponents/SemanticReasoner.java
+END
+LSE.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/subcomponents/LSE.java
+END
+FactChangeEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/subcomponents/FactChangeEventHandler.java
+END
+ServiceExecution.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/subcomponents/ServiceExecution.java
+END
+DefaultFactChangeEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/subcomponents/DefaultFactChangeEventHandler.java
+END
+ServiceRegistry.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/subcomponents/ServiceRegistry.java
+END
+PlanningEnvironment.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/subcomponents/PlanningEnvironment.java
+END
+FactChangeEventListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/subcomponents/FactChangeEventListener.java
+END
+OMSDecider.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/subcomponents/OMSDecider.java
+END

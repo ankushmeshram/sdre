@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/IsReal/!svn/ver/2031/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/oms/components
+END
+SemanticReasonerPlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/oms/components/SemanticReasonerPlugin.java
+END
+Cache.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/oms/components/Cache.java
+END
+DetailedServiceRegistry.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/oms/components/DetailedServiceRegistry.java
+END
+TripleStorePlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/oms/components/TripleStorePlugin.java
+END

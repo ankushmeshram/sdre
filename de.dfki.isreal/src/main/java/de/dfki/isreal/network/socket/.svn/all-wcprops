@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/IsReal/!svn/ver/2074/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/socket
+END
+ISRealSocketThread.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/IsReal/!svn/ver/1991/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/socket/ISRealSocketThread.java
+END
+SocketRegistry.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/IsReal/!svn/ver/2074/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/socket/SocketRegistry.java
+END
+ISRealJettyWebSocket.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/socket/ISRealJettyWebSocket.java
+END
+ISRealSocketClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/IsReal/!svn/ver/1991/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/socket/ISRealSocketClient.java
+END
+ISRealSocket.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/socket/ISRealSocket.java
+END
+ISRealTooTallNateWebSocket.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/socket/ISRealTooTallNateWebSocket.java
+END

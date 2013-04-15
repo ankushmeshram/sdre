@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/protos
+END
+howto_proto.txt
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/protos/howto_proto.txt
+END
+ExchangeDataProtos.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/protos/ExchangeDataProtos.java
+END
+ProtoTransformer.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/protos/ProtoTransformer.java
+END
+exchange_data.proto
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/protos/exchange_data.proto
+END

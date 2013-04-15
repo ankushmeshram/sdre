@@ -1,0 +1,535 @@
+package de.dfki.isreal.data.impl;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.Serializable;
+import java.net.URI;
+import java.net.URISyntaxException;
+
+import org.apache.log4j.Logger;
+import org.mindswap.pellet.owlapi.Reasoner;
+import org.semanticweb.owl.apibinding.OWLManager;
+import org.semanticweb.owl.model.OWLDataFactory;
+import org.semanticweb.owl.model.OWLClass;
+import org.semanticweb.owl.model.OWLConstant;
+import org.semanticweb.owl.model.OWLDataProperty;
+import org.semanticweb.owl.model.OWLDataPropertyExpression;
+import org.semanticweb.owl.model.OWLException;
+import org.semanticweb.owl.model.OWLIndividual;
+import org.semanticweb.owl.model.OWLObjectProperty;
+import org.semanticweb.owl.model.OWLObjectPropertyExpression;
+import org.semanticweb.owl.model.OWLOntology;
+import org.semanticweb.owl.model.OWLOntologyCreationException;
+import org.semanticweb.owl.model.OWLOntologyManager;
+import org.semanticweb.owl.model.OWLPropertyAxiom;
+
+import de.dfki.isreal.data.Parameter;
+import de.dfki.isreal.data.ServiceWrapper;
+import de.dfki.isreal.helpers.StatementHelpers;
+
+/**
+ * This is the OWLS ServiceWrapper implementation.
+ * @author stenes
+ *
+ */
+public class ServiceWrapperImpl implements ServiceWrapper {
+	private static Logger logger = Logger.getLogger(ServiceWrapperImpl.class);
+
+	public URI OWL_S_SERVICE = URI
+			.create("http://www.daml.org/services/owl-s/1.1/Service.owl#");
+	public URI OWL_S_PROFILE = URI
+			.create("http://www.daml.org/services/owl-s/1.1/Profile.owl#");
+	public URI OWL_S_PROCESS = URI
+			.create("http://www.daml.org/services/owl-s/1.1/Process.owl#");
+
+	public URI OWL_S_PROFILE_TEXT_DESCRIPTION = URI.create(OWL_S_PROFILE
+			+ "textDescription");
+
+	public URI OWL_S_SERVICE_DESCRIBED_BY = URI.create(OWL_S_SERVICE
+			+ "describedBy");
+	public URI OWL_S_SERVICE_PRESENTS = URI.create(OWL_S_SERVICE + "presents");
+
+	public URI OWL_S_PROCESS_HAS_RESULT = URI.create(OWL_S_PROCESS
+			+ "hasResult");
+	public URI OWL_S_PROCESS_HAS_PRECONDITION = URI.create(OWL_S_PROCESS
+			+ "hasPrecondition");
+	public URI OWL_S_PROCESS_HAS_EFFECT = URI.create(OWL_S_PROCESS
+			+ "hasEffect");
+	public URI OWL_S_PROCESS_IN_CONDITION = URI.create(OWL_S_PROCESS
+			+ "inCondition");
+	public URI OWL_S_PROCESS_HAS_INPUT = URI.create(OWL_S_PROCESS + "hasInput");
+	public URI OWL_S_PROCESS_PARAMETERTYPE = URI.create(OWL_S_PROCESS
+			+ "parameterType");
+	public URI OWL_S_PROCESS_HAS_OUTPUT = URI.create(OWL_S_PROCESS
+			+ "hasOutput");
+	public URI OWL_S_PROCESS_HAS_LOCAL = URI.create(OWL_S_PROCESS + "hasLocal");
+
+	public URI EXPRESSION = URI
+			.create("http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#");
+	public URI EXPRESSION_BODY = URI.create(EXPRESSION + "expressionBody");
+
+	public URI OWL_S_PROFILE_SERVICEPARAMETER = URI.create(OWL_S_PROFILE
+			+ "serviceParameter");
+	public URI OWL_S_PROFILE_SPARAMETER = URI.create(OWL_S_PROFILE
+			+ "sParameter");
+
+	private URI abs_uri = null;
+	private URI phys_uri = null;
+	private OWLOntology service_ont = null;
+	private OWLIndividual process = null;
+	private OWLOntologyManager man = null;
+	private OWLIndividual service = null;
+	private OWLIndividual profile = null;
+
+	public ServiceWrapperImpl(String abs, String phys) throws URISyntaxException {
+
+		abs_uri = new URI(abs);
+		phys_uri = new File(phys).toURI();
+		man = OWLManager.createOWLOntologyManager();
+		man.setSilentMissingImportsHandling(true);
+		try {
+			service_ont = man.loadOntologyFromPhysicalURI(phys_uri);
+		} catch (OWLOntologyCreationException e1) {
+			e1.printStackTrace();
+		}
+
+		service = man.getOWLDataFactory().getOWLIndividual(abs_uri);
+
+		try {
+			process = getProcess(service);
+			profile = getProfile(service);
+		} catch (OWLException e1) {
+			e1.printStackTrace();
+		}
+
+		if (process == null || service == null || profile == null) {
+			System.out
+					.println("Error: Could not create service wrapper correctly.");
+		}
+	}
+
+	public String getDescription() {
+		return getTextDescription().getLiteral();
+	}
+
+	public List<ConditionalEffect> getEffects() {
+
+		List<ConditionalEffect> cond_effect_list = new ArrayList<ConditionalEffect>();
+		Set<OWLIndividual> results = getResults();
+
+		Iterator<OWLIndividual> result_inds = results.iterator();
+
+		while (result_inds.hasNext()) {
+			OWLIndividual result = result_inds.next();
+			ConditionalEffect c_eff = new ConditionalEffect(result.getURI()
+					.toString());
+			Set<OWLIndividual> effs = getEffects(result);
+			Set<OWLIndividual> conds = getConditions(result);
+			for (OWLIndividual eff : effs) {
+				String e = getExpressionBody(eff);
+				c_eff.addEffect(e, eff);
+			}
+			for (OWLIndividual cond : conds) {
+				String c = getExpressionBody(cond);
+				c_eff.addCondition(c);
+			}
+			cond_effect_list.add(c_eff);
+		}
+		return cond_effect_list;
+	}
+
+	private String getExpressionBody(OWLIndividual expr) {
+		String res = null;
+		try {
+			res = getDataProperty(expr, EXPRESSION_BODY).getLiteral();
+		} catch (OWLException e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	public List<String> getInputs() {
+		Set<OWLIndividual> ins = null;
+		try {
+			ins = getObjectProperties(process, OWL_S_PROCESS_HAS_INPUT);
+		} catch (OWLException e) {
+			e.printStackTrace();
+		}
+
+		List<String> inputs = new ArrayList<String>();
+
+		for (OWLIndividual inp : ins) {
+			inputs.add(inp.getURI().toString());
+		}
+		return inputs;
+	}
+
+	public List<String> getLocals() {
+		Set<OWLIndividual> lols = null;
+		try {
+			lols = getObjectProperties(process, OWL_S_PROCESS_HAS_INPUT);
+		} catch (OWLException e) {
+			e.printStackTrace();
+		}
+
+		List<String> locals = new ArrayList<String>();
+
+		for (OWLIndividual l : lols) {
+			locals.add(l.getURI().toString());
+		}
+		return locals;
+	}
+
+	public List<String> getOutputs() {
+		Set<OWLIndividual> outs = null;
+		try {
+			outs = getObjectProperties(process, OWL_S_PROCESS_HAS_INPUT);
+		} catch (OWLException e) {
+			e.printStackTrace();
+		}
+
+		List<String> outputs = new ArrayList<String>();
+
+		for (OWLIndividual outp : outs) {
+			outputs.add(outp.getURI().toString());
+		}
+		return outputs;
+	}
+
+	public ArrayList<String> getPreconditionExpression() {
+
+		ArrayList<String> prec_exps = new ArrayList<String>();
+		Set<OWLIndividual> precs = null;
+		try {
+			precs = getObjectProperties(process, OWL_S_PROCESS_HAS_PRECONDITION);
+		} catch (OWLException e) {
+			e.printStackTrace();
+		}
+
+		for (OWLIndividual prec : precs) {
+			prec_exps.add(getExpressionBody(prec));
+		}
+
+		return prec_exps;
+	}
+
+	public boolean isValid() {
+		// TODO something is wrong
+		Reasoner reasoner = new Reasoner(man);
+		man.addOntologyChangeListener(reasoner);
+		reasoner.loadOntology(service_ont);
+		return reasoner.isConsistent();
+
+	}
+
+	private OWLObjectProperty findObjectProperty(OWLIndividual individual,
+			URI propertyURI) throws OWLException {
+		Map<OWLObjectPropertyExpression, Set<OWLIndividual>> propertyMap = individual
+				.getObjectPropertyValues(service_ont);
+		if (propertyMap != null) {
+			for (OWLObjectPropertyExpression property : propertyMap.keySet()) {
+				if (property.asOWLObjectProperty().getURI().equals(propertyURI))
+					return property.asOWLObjectProperty();
+			}
+		}
+		return null;
+	}
+
+	private OWLDataProperty findDataProperty(OWLIndividual individual,
+			URI propertyURI) throws OWLException {
+		Map<OWLDataPropertyExpression, Set<OWLConstant>> propertyMap = individual
+				.getDataPropertyValues(service_ont);
+		if (propertyMap != null) {
+			for (OWLDataPropertyExpression property : propertyMap.keySet()) {
+				if (property.asOWLDataProperty().getURI().equals(propertyURI))
+					return property.asOWLDataProperty();
+			}
+		}
+		return null;
+	}
+
+	private Set<OWLIndividual> getObjectProperties(OWLIndividual individual,
+			URI objectPropertyURI) throws OWLException {
+		OWLObjectProperty property = (OWLObjectProperty) findObjectProperty(
+				individual, objectPropertyURI);
+		Set<OWLIndividual> values = (Set<OWLIndividual>) individual
+				.getObjectPropertyValues(service_ont).get(property);
+		if (values != null)
+			return values;
+		return new HashSet<OWLIndividual>();
+	}
+
+	private OWLIndividual getObjectProperty(OWLIndividual individual,
+			URI objectPropertyURI) throws OWLException {
+		Set<OWLIndividual> values = getObjectProperties(individual,
+				objectPropertyURI);
+		if (values.size() >= 1)
+			return values.iterator().next();
+		return null;
+	}
+
+	private Set<OWLConstant> getDataProperties(OWLIndividual individual,
+			URI dataPropertyURI) throws OWLException {
+		OWLDataProperty property = (OWLDataProperty) findDataProperty(
+				individual, dataPropertyURI);
+		return (Set<OWLConstant>) individual.getDataPropertyValues(service_ont)
+				.get(property);
+	}
+
+	private OWLConstant getDataProperty(OWLIndividual individual,
+			URI dataPropertyURI) throws OWLException {
+		Set<OWLConstant> s = getDataProperties(individual, dataPropertyURI);
+		if (s.iterator().hasNext()) {
+			return s.iterator().next();
+		}
+		return null;
+	}
+
+	private OWLIndividual getProcess(OWLIndividual service) throws OWLException {
+		return getObjectProperty(service, OWL_S_SERVICE_DESCRIBED_BY);
+	}
+
+	private OWLIndividual getProfile(OWLIndividual service) throws OWLException {
+		return getObjectProperty(service, OWL_S_SERVICE_PRESENTS);
+	}
+
+	private OWLConstant getTextDescription() {
+		OWLConstant res = null;
+		try {
+			res = getDataProperty(profile, OWL_S_PROFILE_TEXT_DESCRIPTION);
+		} catch (OWLException e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	private Set<OWLIndividual> getResults() {
+		Set<OWLIndividual> res = null;
+		try {
+			res = getObjectProperties(process, OWL_S_PROCESS_HAS_RESULT);
+		} catch (OWLException e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	private Set<OWLIndividual> getEffects(OWLIndividual result) {
+		Set<OWLIndividual> res = null;
+		try {
+			res = getObjectProperties(result, OWL_S_PROCESS_HAS_EFFECT);
+		} catch (OWLException e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	private Set<OWLIndividual> getConditions(OWLIndividual result) {
+		Set<OWLIndividual> res = null;
+		try {
+			res = getObjectProperties(result, OWL_S_PROCESS_IN_CONDITION);
+		} catch (OWLException e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	public String getSelfType() {
+		Set<OWLIndividual> ins = null;
+		try {
+			ins = getObjectProperties(process, OWL_S_PROCESS_HAS_INPUT);
+		} catch (OWLException e) {
+			e.printStackTrace();
+		}
+
+		OWLIndividual self = null;
+
+		for (OWLIndividual ind : ins) {
+			String s = ind.getURI().toString();
+			String se = StatementHelpers.getLocalnameFromURI(s);
+			if (se.equals("#self")) {
+				self = ind;
+			}
+		}
+		if (self != null) {
+			try {
+				Set<OWLConstant> vals = getDataProperties(self,
+						OWL_S_PROCESS_PARAMETERTYPE);
+				if (vals.size() == 1) {
+					return vals.iterator().next().getLiteral();
+				} else {
+					System.out.println("More than one type in self value: "
+							+ self.getURI().toString());
+				}
+			} catch (OWLException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
+
+	public String getSelfName() {
+		Set<OWLIndividual> ins = null;
+		try {
+			ins = getObjectProperties(process, OWL_S_PROCESS_HAS_INPUT);
+		} catch (OWLException e) {
+			e.printStackTrace();
+		}
+
+		for (OWLIndividual ind : ins) {
+			if (StatementHelpers.getLocalnameFromURI(ind.getURI().toString())
+					.equals("#self")) {
+				return ind.getURI().toString();
+			}
+		}
+
+		return null;
+	}
+
+	public List<Parameter> getParameterList() {
+		List<Parameter> pars = new ArrayList<Parameter>();
+
+		// get inputs
+		Set<OWLIndividual> ins = null;
+		try {
+			ins = getObjectProperties(process, OWL_S_PROCESS_HAS_INPUT);
+		} catch (OWLException e) {
+			e.printStackTrace();
+		}
+
+		for (OWLIndividual in : ins) {
+			try {
+				Set<OWLConstant> vals = getDataProperties(in,
+						OWL_S_PROCESS_PARAMETERTYPE);
+				List<String> types = new ArrayList<String>();
+				for (OWLConstant val : vals) {
+					types.add(val.getLiteral());
+				}
+				pars.add(new ParameterImpl(in.getURI().toString(), types));
+			} catch (OWLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		// get outputs
+		Set<OWLIndividual> outs = null;
+		try {
+			outs = getObjectProperties(process, OWL_S_PROCESS_HAS_OUTPUT);
+		} catch (OWLException e) {
+			e.printStackTrace();
+		}
+
+		for (OWLIndividual out : outs) {
+			try {
+				Set<OWLConstant> vals = getDataProperties(out,
+						OWL_S_PROCESS_PARAMETERTYPE);
+				List<String> types = new ArrayList<String>();
+				for (OWLConstant val : vals) {
+					types.add(val.getLiteral());
+				}
+				pars.add(new ParameterImpl(out.getURI().toString(), types));
+			} catch (OWLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		// get locals
+		Set<OWLIndividual> locs = null;
+		try {
+			locs = getObjectProperties(process, OWL_S_PROCESS_HAS_LOCAL);
+		} catch (OWLException e) {
+			e.printStackTrace();
+		}
+
+		for (OWLIndividual loc : locs) {
+			try {
+				Set<OWLConstant> vals = getDataProperties(loc,
+						OWL_S_PROCESS_PARAMETERTYPE);
+				List<String> types = new ArrayList<String>();
+				for (OWLConstant val : vals) {
+					types.add(val.getLiteral());
+				}
+				pars.add(new ParameterImpl(loc.getURI().toString(), types));
+			} catch (OWLException e) {
+				e.printStackTrace();
+			}
+		}
+		return pars;
+	}
+
+	private Set<OWLIndividual> getServiceParameter(OWLIndividual profile)
+			throws OWLException {
+		return getObjectProperties(profile, OWL_S_PROFILE_SERVICEPARAMETER);
+	}
+
+	private OWLIndividual getSParameter(OWLIndividual service_param)
+			throws OWLException {
+		return getObjectProperty(service_param, OWL_S_PROFILE_SPARAMETER);
+	}
+
+	private OWLIndividual getServiceType(OWLIndividual service)
+			throws OWLException {
+		Set<OWLIndividual> s = getServiceParameter(getProfile(service));
+		if (s.iterator().hasNext()) {
+			return getSParameter(s.iterator().next());
+		}
+		return null;
+	}
+
+	public int getServiceType() {
+		OWLIndividual type = null;
+		try {
+			type = getServiceType(service);
+		} catch (OWLException e) {
+			// e.printStackTrace();
+			return -1;
+		}
+		if (type != null) {
+			if (type
+					.getURI()
+					.toString()
+					.equals(
+							"http://www.dfki.de/isreal/isreal_service_parameters.owl#AGENT_ACTION")) {
+				return ServiceWrapper.AGENT_ACTION_SERVICE;
+			} else if (type
+					.getURI()
+					.toString()
+					.equals(
+							"http://www.dfki.de/isreal/isreal_service_parameters.owl#SE_SERVICE")) {
+				return ServiceWrapper.SE_SERVICE;
+			} else if (type
+					.getURI()
+					.toString()
+					.equals(
+							"http://www.dfki.de/isreal/isreal_service_parameters.owl#INTERACTION_SERVICE")) {
+				return ServiceWrapper.INTERACTION_SERVICE;
+			} else if (type
+					.getURI()
+					.toString()
+					.equals(
+							"http://www.dfki.de/isreal/isreal_service_parameters.owl#COMPONENT_SERVICE")) {
+				return ServiceWrapper.COMPONENT_SERVICE;
+			} else if (type
+					.getURI()
+					.toString()
+					.equals(
+							"http://www.dfki.de/isreal/isreal_service_parameters.owl#CONTEXT_RULE")) {
+				return ServiceWrapper.CONTEXT_RULE;
+			}
+			return -1;
+		} else
+			return -1;
+	}
+
+	@Override
+	public String getServiceURI() {
+		return abs_uri.toString();
+	}
+
+}

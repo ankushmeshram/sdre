@@ -1,0 +1,8 @@
+package de.dfki.isreal.semantic.services;
+
+import de.dfki.isreal.semantic.oms.components.DetailedServiceRegistry;
+
+public interface ServiceRegistryCaching extends DetailedServiceRegistry {
+
+	public void prepareServices(String ontologyFileLocation);
+}

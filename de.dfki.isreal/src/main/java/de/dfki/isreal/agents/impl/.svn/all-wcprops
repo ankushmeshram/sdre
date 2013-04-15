@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/IsReal/!svn/ver/1840/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/agents/impl
+END
+DefaultPerceptionQueue.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/agents/impl/DefaultPerceptionQueue.java
+END
+PerceptionDataImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/agents/impl/PerceptionDataImpl.java
+END
+ObjectPerceptionListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/agents/impl/ObjectPerceptionListener.java
+END
+AbstractAgentPlatform.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/IsReal/!svn/ver/1840/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/agents/impl/AbstractAgentPlatform.java
+END
+AgentPlatformStarter.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/agents/impl/AgentPlatformStarter.java
+END
+AgentWorkerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/agents/impl/AgentWorkerImpl.java
+END
+ConceptPerceptionListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/agents/impl/ConceptPerceptionListener.java
+END
+GenericPerceptionListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/agents/impl/GenericPerceptionListener.java
+END
+DefaultAgentWorker.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/agents/impl/DefaultAgentWorker.java
+END
+SPARQLConceptPerceptionListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/agents/impl/SPARQLConceptPerceptionListener.java
+END
+NameURIMap.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/agents/impl/NameURIMap.java
+END

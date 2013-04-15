@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl
+END
+SetOfStatementsQueryResultImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl/SetOfStatementsQueryResultImpl.java
+END
+Output.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl/Output.java
+END
+ParameterImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl/ParameterImpl.java
+END
+PlannerOutputImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl/PlannerOutputImpl.java
+END
+SPARQLDLResultImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl/SPARQLDLResultImpl.java
+END
+InvokationTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl/InvokationTask.java
+END
+AnnotatedObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl/AnnotatedObject.java
+END
+SetOfStatementsStateImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl/SetOfStatementsStateImpl.java
+END
+TransCloseableIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl/TransCloseableIterator.java
+END
+VariableBindingValueSetImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl/VariableBindingValueSetImpl.java
+END
+VariableBindingIteratorImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl/VariableBindingIteratorImpl.java
+END
+VariableBindingResultSetImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl/VariableBindingResultSetImpl.java
+END
+ConditionalEffect.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl/ConditionalEffect.java
+END
+VariableBindingIterationImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl/VariableBindingIterationImpl.java
+END
+ServiceWrapperImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl/ServiceWrapperImpl.java
+END
+OWLStateImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl/OWLStateImpl.java
+END
+CloseableIteratorImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl/CloseableIteratorImpl.java
+END
+StatementImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl/StatementImpl.java
+END
+StatementStateImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl/StatementStateImpl.java
+END
+SetOfStatementsTriplesIteratorImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl/SetOfStatementsTriplesIteratorImpl.java
+END
+BindingListImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl/BindingListImpl.java
+END
+SetOfStatementsStatementListImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl/SetOfStatementsStatementListImpl.java
+END
+BindingImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/impl/BindingImpl.java
+END
