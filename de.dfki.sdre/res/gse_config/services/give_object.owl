@@ -1,0 +1,410 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY pddxml "http://www.dfki.de/isreal/pddxml.owl#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY give_object "http://www.dfki.de/isreal/give_object.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Process "http://www.daml.org/services/owl-s/1.1/Process.owl#" >
+    <!ENTITY Service "http://www.daml.org/services/owl-s/1.1/Service.owl#" >
+    <!ENTITY Profile "http://www.daml.org/services/owl-s/1.1/Profile.owl#" >
+    <!ENTITY Grounding "http://www.daml.org/services/owl-s/1.1/Grounding.owl#" >
+    <!ENTITY isreal_service_parameters "http://www.dfki.de/isreal/isreal_service_parameters.owl#" >
+    <!ENTITY Expression "http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.dfki.de/isreal/give_object.owl#"
+     xml:base="http://www.dfki.de/isreal/give_object.owl"
+     xmlns:Service="http://www.daml.org/services/owl-s/1.1/Service.owl#"
+     xmlns:Profile="http://www.daml.org/services/owl-s/1.1/Profile.owl#"
+     xmlns:give_object="http://www.dfki.de/isreal/give_object.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:pddxml="http://www.dfki.de/isreal/pddxml.owl#"
+     xmlns:Grounding="http://www.daml.org/services/owl-s/1.1/Grounding.owl#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:isreal_service_parameters="http://www.dfki.de/isreal/isreal_service_parameters.owl#"
+     xmlns:Process="http://www.daml.org/services/owl-s/1.1/Process.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:Expression="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#">
+    <owl:Ontology rdf:about="">
+        <owl:imports rdf:resource="http://www.dfki.de/isreal/messemodul.owl"/>
+        <owl:imports rdf:resource="http://www.dfki.de/isreal/pddxml.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#hasEffect -->
+
+    <owl:ObjectProperty rdf:about="&Process;hasEffect"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#hasInput -->
+
+    <owl:ObjectProperty rdf:about="&Process;hasInput"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#hasPrecondition -->
+
+    <owl:ObjectProperty rdf:about="&Process;hasPrecondition"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#hasResult -->
+
+    <owl:ObjectProperty rdf:about="&Process;hasResult"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#hasInput -->
+
+    <owl:ObjectProperty rdf:about="&Profile;hasInput"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#has_process -->
+
+    <owl:ObjectProperty rdf:about="&Profile;has_process"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#sParameter -->
+
+    <owl:ObjectProperty rdf:about="&Profile;sParameter"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#serviceParameter -->
+
+    <owl:ObjectProperty rdf:about="&Profile;serviceParameter"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Service.owl#describedBy -->
+
+    <owl:ObjectProperty rdf:about="&Service;describedBy"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Service.owl#describes -->
+
+    <owl:ObjectProperty rdf:about="&Service;describes"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Service.owl#presentedBy -->
+
+    <owl:ObjectProperty rdf:about="&Service;presentedBy"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Service.owl#presents -->
+
+    <owl:ObjectProperty rdf:about="&Service;presents"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Service.owl#supportedBy -->
+
+    <owl:ObjectProperty rdf:about="&Service;supportedBy"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Service.owl#supports -->
+
+    <owl:ObjectProperty rdf:about="&Service;supports"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#parameterType -->
+
+    <owl:DatatypeProperty rdf:about="&Process;parameterType"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#serviceName -->
+
+    <owl:DatatypeProperty rdf:about="&Profile;serviceName"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#serviceParameterName -->
+
+    <owl:DatatypeProperty rdf:about="&Profile;serviceParameterName"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#textDescription -->
+
+    <owl:DatatypeProperty rdf:about="&Profile;textDescription"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#expressionBody -->
+
+    <owl:DatatypeProperty rdf:about="&Expression;expressionBody"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlGrounding -->
+
+    <owl:Class rdf:about="&Grounding;WsdlGrounding"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#AtomicProcess -->
+
+    <owl:Class rdf:about="&Process;AtomicProcess"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#Input -->
+
+    <owl:Class rdf:about="&Process;Input"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#Result -->
+
+    <owl:Class rdf:about="&Process;Result"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#Profile -->
+
+    <owl:Class rdf:about="&Profile;Profile"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#ServiceParameter -->
+
+    <owl:Class rdf:about="&Profile;ServiceParameter"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Service.owl#Service -->
+
+    <owl:Class rdf:about="&Service;Service"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/pddxml.owl#PDDXML-Condition -->
+
+    <owl:Class rdf:about="&pddxml;PDDXML-Condition"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/pddxml.owl#PDDXML-Expression -->
+
+    <owl:Class rdf:about="&pddxml;PDDXML-Expression"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.dfki.de/isreal/give_object.owl#GiveObjectAtomicProcess -->
+
+    <owl:Thing rdf:about="#GiveObjectAtomicProcess">
+        <rdf:type rdf:resource="&Process;AtomicProcess"/>
+        <Service:describes rdf:resource="#GiveObjectService"/>
+        <Process:hasInput rdf:resource="#Object"/>
+        <Process:hasPrecondition rdf:resource="#PDDXML-Precondition"/>
+        <Process:hasResult rdf:resource="#Result"/>
+        <Process:hasInput rdf:resource="#Target"/>
+        <Process:hasInput rdf:resource="#self"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.dfki.de/isreal/give_object.owl#GiveObjectProfile -->
+
+    <Profile:Profile rdf:about="#GiveObjectProfile">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <Profile:textDescription rdf:datatype="&xsd;string"
+            >Agent moves to an object.</Profile:textDescription>
+        <Profile:serviceName rdf:datatype="&xsd;string">Move to</Profile:serviceName>
+        <Profile:has_process rdf:resource="#GiveObjectAtomicProcess"/>
+        <Service:presentedBy rdf:resource="#GiveObjectService"/>
+        <Process:hasInput rdf:resource="#Object"/>
+        <Profile:serviceParameter rdf:resource="#SParam"/>
+        <Process:hasInput rdf:resource="#Target"/>
+        <Profile:hasInput rdf:resource="#self"/>
+    </Profile:Profile>
+    
+
+
+    <!-- http://www.dfki.de/isreal/give_object.owl#GiveObjectService -->
+
+    <owl:Thing rdf:about="#GiveObjectService">
+        <rdf:type rdf:resource="&Service;Service"/>
+        <Service:describedBy rdf:resource="#GiveObjectAtomicProcess"/>
+        <Service:presents rdf:resource="#GiveObjectProfile"/>
+        <Service:supports rdf:resource="#GiveObjectWsdlGrounding"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.dfki.de/isreal/give_object.owl#GiveObjectWsdlGrounding -->
+
+    <Grounding:WsdlGrounding rdf:about="#GiveObjectWsdlGrounding">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <Service:supportedBy rdf:resource="#GiveObjectService"/>
+    </Grounding:WsdlGrounding>
+    
+
+
+    <!-- http://www.dfki.de/isreal/give_object.owl#Object -->
+
+    <owl:Thing rdf:about="#Object">
+        <rdf:type rdf:resource="&Process;Input"/>
+        <Process:parameterType rdf:datatype="&xsd;anyURI"
+            >http://www.dfki.de/isreal/messemodul.owl#CarriedObject</Process:parameterType>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.dfki.de/isreal/give_object.owl#PDDXML-Effect -->
+
+    <owl:Thing rdf:about="#PDDXML-Effect">
+        <rdf:type rdf:resource="&pddxml;PDDXML-Expression"/>
+        <Expression:expressionBody rdf:datatype="&xsd;string"
+            >&lt;and&gt;
+  &lt;not&gt;
+    &lt;pred name=&quot;http://www.dfki.de/isreal/messemodul.owl#carriesObject&quot;&gt;
+      &lt;param&gt;?http://www.dfki.de/isreal/give_object.owl#self&lt;/param&gt;
+      &lt;param&gt;?http://www.dfki.de/isreal/give_object.owl#Object&lt;/param&gt;
+    &lt;/pred&gt;
+  &lt;/not&gt;
+  &lt;pred name=&quot;http://www.dfki.de/isreal/messemodul.owl#carriesObject&quot;&gt;
+    &lt;param&gt;?http://www.dfki.de/isreal/give_object.owl#Target&lt;/param&gt;
+    &lt;param&gt;?http://www.dfki.de/isreal/give_object.owl#Object&lt;/param&gt;
+  &lt;/pred&gt;
+&lt;/and&gt;</Expression:expressionBody>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.dfki.de/isreal/give_object.owl#PDDXML-Precondition -->
+
+    <pddxml:PDDXML-Condition rdf:about="#PDDXML-Precondition">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <Expression:expressionBody rdf:datatype="&xsd;string"
+            >&lt;and&gt;
+  &lt;pred name=&quot;http://www.dfki.de/isreal/messemodul.owl#carriesObject&quot;&gt;
+    &lt;param&gt;?http://www.dfki.de/isreal/give_object.owl#self&lt;/param&gt;
+    &lt;param&gt;?http://www.dfki.de/isreal/give_object.owl#Object&lt;/param&gt;
+  &lt;/pred&gt;
+  &lt;pred name=&quot;http://www.dfki.de/isreal/spatial_ontology.owl#isNearAt&quot;&gt;
+    &lt;param&gt;?http://www.dfki.de/isreal/give_object.owl#self&lt;/param&gt;
+    &lt;param&gt;?http://www.dfki.de/isreal/give_object.owl#Target&lt;/param&gt;
+  &lt;/pred&gt;
+&lt;/and&gt;</Expression:expressionBody>
+    </pddxml:PDDXML-Condition>
+    
+
+
+    <!-- http://www.dfki.de/isreal/give_object.owl#Result -->
+
+    <owl:Thing rdf:about="#Result">
+        <rdf:type rdf:resource="&Process;Result"/>
+        <Process:hasEffect rdf:resource="#PDDXML-Effect"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.dfki.de/isreal/give_object.owl#SParam -->
+
+    <owl:Thing rdf:about="#SParam">
+        <rdf:type rdf:resource="&Profile;ServiceParameter"/>
+        <Profile:serviceParameterName rdf:datatype="&xsd;string"
+            >ISReal_Service_Type</Profile:serviceParameterName>
+        <Profile:sParameter rdf:resource="&isreal_service_parameters;AGENT_ACTION"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.dfki.de/isreal/give_object.owl#Target -->
+
+    <owl:Thing rdf:about="#Target">
+        <rdf:type rdf:resource="&Process;Input"/>
+        <Process:parameterType rdf:datatype="&xsd;anyURI"
+            >http://www.dfki.de/isreal/agent.owl#Agent</Process:parameterType>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.dfki.de/isreal/give_object.owl#self -->
+
+    <Process:Input rdf:about="#self">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <Process:parameterType rdf:datatype="&xsd;anyURI"
+            >http://www.dfki.de/isreal/agent.owl#Agent</Process:parameterType>
+    </Process:Input>
+    
+
+
+    <!-- http://www.dfki.de/isreal/isreal_service_parameters.owl#AGENT_ACTION -->
+
+    <owl:Thing rdf:about="&isreal_service_parameters;AGENT_ACTION"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY abstract_concepts "http://www.dfki.de/isreal/abstract_concepts.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.dfki.de/isreal/abstract_concepts.owl#"
+     xml:base="http://www.dfki.de/isreal/abstract_concepts.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:abstract_concepts="http://www.dfki.de/isreal/abstract_concepts.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about=""/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Black -->
+
+    <owl:Class rdf:about="#Black">
+        <rdfs:subClassOf rdf:resource="#Color"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Blue -->
+
+    <owl:Class rdf:about="#Blue">
+        <rdfs:subClassOf rdf:resource="#Color"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Brown -->
+
+    <owl:Class rdf:about="#Brown">
+        <rdfs:subClassOf rdf:resource="#Color"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Close -->
+
+    <owl:Class rdf:about="#Close">
+        <rdfs:subClassOf rdf:resource="#State"/>
+        <owl:disjointWith rdf:resource="#Open"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Color -->
+
+    <owl:Class rdf:about="#Color"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Down -->
+
+    <owl:Class rdf:about="#Down">
+        <rdfs:subClassOf rdf:resource="#State"/>
+        <owl:disjointWith rdf:resource="#Up"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Empty -->
+
+    <owl:Class rdf:about="#Empty">
+        <rdfs:subClassOf rdf:resource="#State"/>
+        <owl:disjointWith rdf:resource="#Full"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Full -->
+
+    <owl:Class rdf:about="#Full">
+        <rdfs:subClassOf rdf:resource="#State"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Green -->
+
+    <owl:Class rdf:about="#Green">
+        <rdfs:subClassOf rdf:resource="#Color"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Locked -->
+
+    <owl:Class rdf:about="#Locked">
+        <rdfs:subClassOf rdf:resource="#State"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Moving -->
+
+    <owl:Class rdf:about="#Moving">
+        <rdfs:subClassOf rdf:resource="#State"/>
+        <owl:disjointWith rdf:resource="#NotMoving"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#NotMoving -->
+
+    <owl:Class rdf:about="#NotMoving">
+        <rdfs:subClassOf rdf:resource="#State"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#NotWorking -->
+
+    <owl:Class rdf:about="#NotWorking">
+        <rdfs:subClassOf rdf:resource="#State"/>
+        <owl:disjointWith rdf:resource="#Working"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Off -->
+
+    <owl:Class rdf:about="#Off">
+        <rdfs:subClassOf rdf:resource="#State"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#On -->
+
+    <owl:Class rdf:about="#On">
+        <rdfs:subClassOf rdf:resource="#State"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Open -->
+
+    <owl:Class rdf:about="#Open">
+        <rdfs:subClassOf rdf:resource="#State"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Orange -->
+
+    <owl:Class rdf:about="#Orange">
+        <rdfs:subClassOf rdf:resource="#Color"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Red -->
+
+    <owl:Class rdf:about="#Red">
+        <rdfs:subClassOf rdf:resource="#Color"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#State -->
+
+    <owl:Class rdf:about="#State"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Unlocked -->
+
+    <owl:Class rdf:about="#Unlocked">
+        <rdfs:subClassOf rdf:resource="#State"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Up -->
+
+    <owl:Class rdf:about="#Up">
+        <rdfs:subClassOf rdf:resource="#State"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#White -->
+
+    <owl:Class rdf:about="#White">
+        <rdfs:subClassOf rdf:resource="#Color"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Working -->
+
+    <owl:Class rdf:about="#Working">
+        <rdfs:subClassOf rdf:resource="#State"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Yellow -->
+
+    <owl:Class rdf:about="#Yellow">
+        <rdfs:subClassOf rdf:resource="#Color"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

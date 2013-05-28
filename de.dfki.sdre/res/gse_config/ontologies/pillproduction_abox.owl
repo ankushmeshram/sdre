@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY messemodul "http://www.dfki.de/isreal/messemodul.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY pillproduction "http://www.dfki.de/isreal/pillproduction.owl#" >
+    <!ENTITY pillproduction_abox "http://www.dfki.de/isreal/pillproduction_abox.owl#" >
+    <!ENTITY create_blue_pill_on_workbench "http://www.dfki.de/isreal/create_blue_pill_on_workbench.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.dfki.de/isreal/pillproduction_abox.owl#"
+     xml:base="http://www.dfki.de/isreal/pillproduction_abox.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:create_blue_pill_on_workbench="http://www.dfki.de/isreal/create_blue_pill_on_workbench.owl#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:messemodul="http://www.dfki.de/isreal/messemodul.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:pillproduction="http://www.dfki.de/isreal/pillproduction.owl#"
+     xmlns:pillproduction_abox="http://www.dfki.de/isreal/pillproduction_abox.owl#">
+    <owl:Ontology rdf:about="">
+        <owl:imports rdf:resource="http://www.dfki.de/isreal/pillproduction.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.dfki.de/isreal/pillproduction.owl#requires -->
+
+    <owl:ObjectProperty rdf:about="&pillproduction;requires"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#carriesObject -->
+
+    <owl:ObjectProperty rdf:about="&messemodul;carriesObject"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.dfki.de/isreal/pillproduction.owl#hasInstruction -->
+
+    <owl:DatatypeProperty rdf:about="&pillproduction;hasInstruction"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.dfki.de/isreal/pillproduction.owl#Capsule -->
+
+    <owl:Class rdf:about="&pillproduction;Capsule"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/pillproduction.owl#Receipe -->
+
+    <owl:Class rdf:about="&pillproduction;Receipe">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/pillproduction.owl#SubstanceTypeA -->
+
+    <owl:Class rdf:about="&pillproduction;SubstanceTypeA"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/pillproduction.owl#SubstanceTypeB -->
+
+    <owl:Class rdf:about="&pillproduction;SubstanceTypeB"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/pillproduction.owl#SubstanceTypeC -->
+
+    <owl:Class rdf:about="&pillproduction;SubstanceTypeC"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/pillproduction.owl#SubstanceTypeD -->
+
+    <owl:Class rdf:about="&pillproduction;SubstanceTypeD"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/pillproduction.owl#Workbench -->
+
+    <owl:Class rdf:about="&pillproduction;Workbench"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.dfki.de/isreal/pillproduction_abox.owl#bluepillreceipe -->
+
+    <pillproduction:Receipe rdf:about="#bluepillreceipe">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <pillproduction:hasInstruction rdf:datatype="&xsd;anyURI"
+            >http://www.dfki.de/isreal/create_blue_pill_on_workbench.owl#CreateBluePillOnWorkbenchService</pillproduction:hasInstruction>
+        <pillproduction:requires rdf:resource="#ingredient01"/>
+        <pillproduction:requires rdf:resource="#ingredient02"/>
+        <pillproduction:requires rdf:resource="#ingredient03"/>
+        <pillproduction:requires rdf:resource="#ingredient04"/>
+    </pillproduction:Receipe>
+    
+
+
+    <!-- http://www.dfki.de/isreal/pillproduction_abox.owl#c01 -->
+
+    <pillproduction:Capsule rdf:about="#c01">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </pillproduction:Capsule>
+    
+
+
+    <!-- http://www.dfki.de/isreal/pillproduction_abox.owl#ingredient01 -->
+
+    <pillproduction:SubstanceTypeA rdf:about="#ingredient01">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </pillproduction:SubstanceTypeA>
+    
+
+
+    <!-- http://www.dfki.de/isreal/pillproduction_abox.owl#ingredient02 -->
+
+    <pillproduction:SubstanceTypeB rdf:about="#ingredient02">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </pillproduction:SubstanceTypeB>
+    
+
+
+    <!-- http://www.dfki.de/isreal/pillproduction_abox.owl#ingredient03 -->
+
+    <pillproduction:SubstanceTypeC rdf:about="#ingredient03">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </pillproduction:SubstanceTypeC>
+    
+
+
+    <!-- http://www.dfki.de/isreal/pillproduction_abox.owl#ingredient04 -->
+
+    <pillproduction:SubstanceTypeD rdf:about="#ingredient04">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </pillproduction:SubstanceTypeD>
+    
+
+
+    <!-- http://www.dfki.de/isreal/pillproduction_abox.owl#workbench1 -->
+
+    <owl:Thing rdf:about="#workbench1">
+        <rdf:type rdf:resource="&pillproduction;Workbench"/>
+        <messemodul:carriesObject rdf:resource="#c01"/>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

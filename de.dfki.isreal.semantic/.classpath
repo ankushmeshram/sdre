@@ -36,5 +36,8 @@
 	<classpathentry kind="lib" path="libs/xercesImpl-2.7.1.jar"/>
 	<classpathentry kind="lib" path="libs/xsdlip-0.0.1.jar"/>
 	<classpathentry kind="lib" path="test.isreal-0.0.1.jar"/>
+	<classpathentry kind="lib" path="/de.dfki.sdre/owlapi-distribution-3.4.4-bin.jar"/>
+	<classpathentry kind="lib" path="/i2s/FaCTpp-OWLAPI-3.4-v1.6.2.jar"/>
+	<classpathentry kind="lib" path="/de.dfki.sdre/sparqldl-api.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

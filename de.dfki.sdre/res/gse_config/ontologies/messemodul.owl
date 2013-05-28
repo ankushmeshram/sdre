@@ -1,0 +1,827 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY agent "http://www.dfki.de/isreal/agent.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY messemodul "http://www.dfki.de/isreal/messemodul.owl#" >
+    <!ENTITY spatial_ontology "http://www.dfki.de/isreal/spatial_ontology.owl#" >
+    <!ENTITY abstract_concepts "http://www.dfki.de/isreal/abstract_concepts.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.dfki.de/isreal/messemodul.owl#"
+     xml:base="http://www.dfki.de/isreal/messemodul.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:spatial_ontology="http://www.dfki.de/isreal/spatial_ontology.owl#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:abstract_concepts="http://www.dfki.de/isreal/abstract_concepts.owl#"
+     xmlns:messemodul="http://www.dfki.de/isreal/messemodul.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:agent="http://www.dfki.de/isreal/agent.owl#">
+    <owl:Ontology rdf:about="">
+        <owl:imports rdf:resource="http://www.dfki.de/isreal/abstract_concepts.owl"/>
+        <owl:imports rdf:resource="http://www.dfki.de/isreal/agent.owl"/>
+        <owl:imports rdf:resource="http://www.dfki.de/isreal/spatial_ontology.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#carriedBy -->
+
+    <owl:ObjectProperty rdf:about="#carriedBy">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:domain rdf:resource="#CarriedObject"/>
+        <rdfs:range rdf:resource="#Carrier"/>
+        <owl:inverseOf rdf:resource="#carriesObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#carriesObject -->
+
+    <owl:ObjectProperty rdf:about="#carriesObject">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:range rdf:resource="#CarriedObject"/>
+        <rdfs:domain rdf:resource="#Carrier"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#consistsOf -->
+
+    <owl:ObjectProperty rdf:about="#consistsOf">
+        <rdfs:domain rdf:resource="#Machine"/>
+        <rdfs:range rdf:resource="#MachinePart"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#contains -->
+
+    <owl:ObjectProperty rdf:about="#contains">
+        <rdfs:range rdf:resource="#FillableObject"/>
+        <rdfs:domain rdf:resource="#StorageObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#detects -->
+
+    <owl:ObjectProperty rdf:about="#detects">
+        <rdfs:range rdf:resource="#PhysicalObject"/>
+        <rdfs:domain rdf:resource="#Sensor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#detectsCarriage -->
+
+    <owl:ObjectProperty rdf:about="#detectsCarriage">
+        <rdfs:range rdf:resource="#Carriage"/>
+        <rdfs:domain rdf:resource="#PresenceSensor"/>
+        <rdfs:subPropertyOf rdf:resource="#detects"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#detectsCup -->
+
+    <owl:ObjectProperty rdf:about="#detectsCup">
+        <rdfs:range rdf:resource="#Cup"/>
+        <rdfs:domain rdf:resource="#PresenceSensor"/>
+        <rdfs:subPropertyOf rdf:resource="#detects"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#detectsRfIDChip -->
+
+    <owl:ObjectProperty rdf:about="#detectsRfIDChip">
+        <rdfs:range rdf:resource="#RfIDChip"/>
+        <rdfs:domain rdf:resource="#RfIDReader"/>
+        <rdfs:subPropertyOf rdf:resource="#detects"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#electricalConnectedWith -->
+
+    <owl:ObjectProperty rdf:about="#electricalConnectedWith">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:domain rdf:resource="#ElectricalPart"/>
+        <rdfs:range rdf:resource="#ElectricalPart"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#fixedAt -->
+
+    <owl:ObjectProperty rdf:about="#fixedAt">
+        <rdfs:range rdf:resource="#PhysicalObject"/>
+        <rdfs:domain rdf:resource="#RfIDChip"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#hasCargoArea -->
+
+    <owl:ObjectProperty rdf:about="#hasCargoArea">
+        <rdfs:domain rdf:resource="#StorageObject"/>
+        <rdfs:range rdf:resource="&spatial_ontology;SpatialZone"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#hasColor -->
+
+    <owl:ObjectProperty rdf:about="#hasColor">
+        <rdfs:range rdf:resource="&abstract_concepts;Color"/>
+        <rdfs:domain rdf:resource="#PhysicalObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#hasEndPos -->
+
+    <owl:ObjectProperty rdf:about="#hasEndPos">
+        <rdfs:domain rdf:resource="#MesseModul"/>
+        <rdfs:range rdf:resource="&spatial_ontology;SpatialZone"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#hasFillPos -->
+
+    <owl:ObjectProperty rdf:about="#hasFillPos">
+        <rdfs:domain rdf:resource="#MesseModul"/>
+        <rdfs:range rdf:resource="&spatial_ontology;SpatialZone"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#hasLeftMagazine -->
+
+    <owl:ObjectProperty rdf:about="#hasLeftMagazine">
+        <rdfs:range rdf:resource="#Magazine"/>
+        <rdfs:domain rdf:resource="#Module"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#hasMiddleMagazine -->
+
+    <owl:ObjectProperty rdf:about="#hasMiddleMagazine">
+        <rdfs:range rdf:resource="#Magazine"/>
+        <rdfs:domain rdf:resource="#Module"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#hasModule -->
+
+    <owl:ObjectProperty rdf:about="#hasModule">
+        <rdfs:domain rdf:resource="#Machine"/>
+        <rdfs:range rdf:resource="#Module"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#hasReaderPos -->
+
+    <owl:ObjectProperty rdf:about="#hasReaderPos">
+        <rdfs:domain rdf:resource="#MesseModul"/>
+        <rdfs:range rdf:resource="&spatial_ontology;SpatialZone"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#hasRightMagazine -->
+
+    <owl:ObjectProperty rdf:about="#hasRightMagazine">
+        <rdfs:range rdf:resource="#Magazine"/>
+        <rdfs:domain rdf:resource="#Module"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#hasSideEffects -->
+
+    <owl:ObjectProperty rdf:about="#hasSideEffects"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#hasWriterPos -->
+
+    <owl:ObjectProperty rdf:about="#hasWriterPos">
+        <rdfs:domain rdf:resource="#MesseModul"/>
+        <rdfs:range rdf:resource="&spatial_ontology;SpatialZone"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#isComponentOf -->
+
+    <owl:ObjectProperty rdf:about="#isComponentOf">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#Machine"/>
+        <rdfs:domain rdf:resource="#MachinePart"/>
+        <owl:inverseOf rdf:resource="#consistsOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#isModuleOf -->
+
+    <owl:ObjectProperty rdf:about="#isModuleOf">
+        <rdfs:range rdf:resource="#Machine"/>
+        <rdfs:domain rdf:resource="#Module"/>
+        <owl:inverseOf rdf:resource="#hasModule"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#stores -->
+
+    <owl:ObjectProperty rdf:about="#stores">
+        <rdfs:range rdf:resource="&abstract_concepts;Color"/>
+        <rdfs:domain rdf:resource="#PhysicalObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#usesTechnology -->
+
+    <owl:ObjectProperty rdf:about="#usesTechnology">
+        <rdfs:domain rdf:resource="#Sensor"/>
+        <rdfs:range rdf:resource="#SensorTechnology"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Blue -->
+
+    <owl:Class rdf:about="&abstract_concepts;Blue"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Color -->
+
+    <owl:Class rdf:about="&abstract_concepts;Color"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Green -->
+
+    <owl:Class rdf:about="&abstract_concepts;Green"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Red -->
+
+    <owl:Class rdf:about="&abstract_concepts;Red"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#White -->
+
+    <owl:Class rdf:about="&abstract_concepts;White"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Yellow -->
+
+    <owl:Class rdf:about="&abstract_concepts;Yellow"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/agent.owl#Agent -->
+
+    <owl:Class rdf:about="&agent;Agent">
+        <rdfs:subClassOf rdf:resource="#Carrier"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#Battery -->
+
+    <owl:Class rdf:about="#Battery">
+        <rdfs:subClassOf rdf:resource="#PowerSupply"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#Belt -->
+
+    <owl:Class rdf:about="#Belt">
+        <rdfs:subClassOf rdf:resource="#Carrier"/>
+        <rdfs:subClassOf rdf:resource="#MechanicalPart"/>
+        <rdfs:subClassOf rdf:resource="#TransportMechanismPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#BluePill -->
+
+    <owl:Class rdf:about="#BluePill">
+        <rdfs:subClassOf rdf:resource="&abstract_concepts;Blue"/>
+        <rdfs:subClassOf rdf:resource="#Pill"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#Button -->
+
+    <owl:Class rdf:about="#Button">
+        <rdfs:subClassOf rdf:resource="#ControllingPart"/>
+        <rdfs:subClassOf rdf:resource="#ElectricalPart"/>
+        <owl:disjointWith rdf:resource="#Pill"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#Carriage -->
+
+    <owl:Class rdf:about="#Carriage">
+        <rdfs:subClassOf rdf:resource="#CarriedObject"/>
+        <rdfs:subClassOf rdf:resource="#Carrier"/>
+        <rdfs:subClassOf rdf:resource="#StaticPart"/>
+        <rdfs:subClassOf rdf:resource="#TransportMechanismPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#CarriedObject -->
+
+    <owl:Class rdf:about="#CarriedObject">
+        <rdfs:subClassOf rdf:resource="#PhysicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#Carrier -->
+
+    <owl:Class rdf:about="#Carrier">
+        <rdfs:subClassOf rdf:resource="#PhysicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#Contact -->
+
+    <owl:Class rdf:about="#Contact">
+        <rdfs:subClassOf rdf:resource="#SensorTechnology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#ContactSensor -->
+
+    <owl:Class rdf:about="#ContactSensor">
+        <rdfs:subClassOf rdf:resource="#PresenceSensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#ControllingPart -->
+
+    <owl:Class rdf:about="#ControllingPart">
+        <rdfs:subClassOf rdf:resource="#TechnicalProductionPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#Cup -->
+
+    <owl:Class rdf:about="#Cup">
+        <rdfs:subClassOf rdf:resource="#CarriedObject"/>
+        <rdfs:subClassOf rdf:resource="#Carrier"/>
+        <rdfs:subClassOf rdf:resource="#StaticPart"/>
+        <rdfs:subClassOf rdf:resource="#StorageObject"/>
+        <rdfs:subClassOf rdf:resource="#TransportMechanismPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#Disease -->
+
+    <owl:Class rdf:about="#Disease"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#Doser -->
+
+    <owl:Class rdf:about="#Doser">
+        <rdfs:subClassOf rdf:resource="#FillingMechanismPart"/>
+        <rdfs:subClassOf rdf:resource="#MechanicalPart"/>
+        <rdfs:subClassOf rdf:resource="#StorageObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#ElectricalMachine -->
+
+    <owl:Class rdf:about="#ElectricalMachine">
+        <rdfs:subClassOf rdf:resource="#Machine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#ElectricalPart -->
+
+    <owl:Class rdf:about="#ElectricalPart">
+        <rdfs:subClassOf rdf:resource="#MachinePart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#FillableObject -->
+
+    <owl:Class rdf:about="#FillableObject">
+        <rdfs:subClassOf rdf:resource="#PhysicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#FillingMechanismPart -->
+
+    <owl:Class rdf:about="#FillingMechanismPart">
+        <rdfs:subClassOf rdf:resource="#TechnicalProductionPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#FillingModule -->
+
+    <owl:Class rdf:about="#FillingModule">
+        <rdfs:subClassOf rdf:resource="#Module"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#GreenLamp -->
+
+    <owl:Class rdf:about="#GreenLamp">
+        <rdfs:subClassOf rdf:resource="&abstract_concepts;Green"/>
+        <rdfs:subClassOf rdf:resource="#Lamp"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#Lamp -->
+
+    <owl:Class rdf:about="#Lamp">
+        <rdfs:subClassOf rdf:resource="#WarningSign"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#Machine -->
+
+    <owl:Class rdf:about="#Machine">
+        <rdfs:subClassOf rdf:resource="#PhysicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#MachinePart -->
+
+    <owl:Class rdf:about="#MachinePart">
+        <rdfs:subClassOf rdf:resource="#PhysicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#Magazine -->
+
+    <owl:Class rdf:about="#Magazine">
+        <rdfs:subClassOf rdf:resource="#FillingMechanismPart"/>
+        <rdfs:subClassOf rdf:resource="#StaticPart"/>
+        <rdfs:subClassOf rdf:resource="#StorageObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#MechanicalPart -->
+
+    <owl:Class rdf:about="#MechanicalPart">
+        <rdfs:subClassOf rdf:resource="#MachinePart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#MesseModul -->
+
+    <owl:Class rdf:about="#MesseModul">
+        <rdfs:subClassOf rdf:resource="#ElectricalMachine"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasModule"/>
+                <owl:someValuesFrom rdf:resource="#FillingModule"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#Module -->
+
+    <owl:Class rdf:about="#Module">
+        <rdfs:subClassOf rdf:resource="#PhysicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#PhysicalObject -->
+
+    <owl:Class rdf:about="#PhysicalObject">
+        <rdfs:subClassOf rdf:resource="&spatial_ontology;SpatialObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#Pill -->
+
+    <owl:Class rdf:about="#Pill">
+        <rdfs:subClassOf rdf:resource="#CarriedObject"/>
+        <rdfs:subClassOf rdf:resource="#FillableObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#PowerPlug -->
+
+    <owl:Class rdf:about="#PowerPlug">
+        <rdfs:subClassOf rdf:resource="#PowerSupply"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#PowerSupply -->
+
+    <owl:Class rdf:about="#PowerSupply">
+        <rdfs:subClassOf rdf:resource="#ElectricalPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#PresenceSensor -->
+
+    <owl:Class rdf:about="#PresenceSensor">
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+        <rdfs:subClassOf rdf:resource="#TransportMechanismPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#RedButton -->
+
+    <owl:Class rdf:about="#RedButton">
+        <rdfs:subClassOf rdf:resource="#Button"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#RedLamp -->
+
+    <owl:Class rdf:about="#RedLamp">
+        <rdfs:subClassOf rdf:resource="&abstract_concepts;Red"/>
+        <rdfs:subClassOf rdf:resource="#Lamp"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#RedPill -->
+
+    <owl:Class rdf:about="#RedPill">
+        <rdfs:subClassOf rdf:resource="&abstract_concepts;Red"/>
+        <rdfs:subClassOf rdf:resource="#Pill"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#RfID -->
+
+    <owl:Class rdf:about="#RfID">
+        <rdfs:subClassOf rdf:resource="#SensorTechnology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#RfIDChip -->
+
+    <owl:Class rdf:about="#RfIDChip">
+        <rdfs:subClassOf rdf:resource="#RfIDPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#RfIDPart -->
+
+    <owl:Class rdf:about="#RfIDPart">
+        <rdfs:subClassOf rdf:resource="#ElectricalPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#RfIDReader -->
+
+    <owl:Class rdf:about="#RfIDReader">
+        <rdfs:subClassOf rdf:resource="#FillingMechanismPart"/>
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#RfIDWriter -->
+
+    <owl:Class rdf:about="#RfIDWriter">
+        <rdfs:subClassOf rdf:resource="#FillingMechanismPart"/>
+        <rdfs:subClassOf rdf:resource="#RfIDPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#Sensor -->
+
+    <owl:Class rdf:about="#Sensor">
+        <rdfs:subClassOf rdf:resource="#ElectricalPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#SensorTechnology -->
+
+    <owl:Class rdf:about="#SensorTechnology">
+        <rdfs:subClassOf rdf:resource="#Technology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#Slider -->
+
+    <owl:Class rdf:about="#Slider">
+        <rdfs:subClassOf rdf:resource="#FillingMechanismPart"/>
+        <rdfs:subClassOf rdf:resource="#MechanicalPart"/>
+        <rdfs:subClassOf rdf:resource="#StorageObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#StaticPart -->
+
+    <owl:Class rdf:about="#StaticPart">
+        <rdfs:subClassOf rdf:resource="#MachinePart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#Stopper -->
+
+    <owl:Class rdf:about="#Stopper">
+        <rdfs:subClassOf rdf:resource="#MechanicalPart"/>
+        <rdfs:subClassOf rdf:resource="#TransportMechanismPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#StorageObject -->
+
+    <owl:Class rdf:about="#StorageObject">
+        <rdfs:subClassOf rdf:resource="#PhysicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#StructuralComponent -->
+
+    <owl:Class rdf:about="#StructuralComponent">
+        <rdfs:subClassOf rdf:resource="#StaticPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#TechnicalProductionPart -->
+
+    <owl:Class rdf:about="#TechnicalProductionPart">
+        <rdfs:subClassOf rdf:resource="#MachinePart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#Technology -->
+
+    <owl:Class rdf:about="#Technology"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#TransportMechanismPart -->
+
+    <owl:Class rdf:about="#TransportMechanismPart">
+        <rdfs:subClassOf rdf:resource="#TechnicalProductionPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#TransportationModule -->
+
+    <owl:Class rdf:about="#TransportationModule">
+        <rdfs:subClassOf rdf:resource="#Module"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#UltraSound -->
+
+    <owl:Class rdf:about="#UltraSound">
+        <rdfs:subClassOf rdf:resource="#SensorTechnology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#UltraSoundSensor -->
+
+    <owl:Class rdf:about="#UltraSoundSensor">
+        <rdfs:subClassOf rdf:resource="#PresenceSensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#WarningSign -->
+
+    <owl:Class rdf:about="#WarningSign">
+        <rdfs:subClassOf rdf:resource="#ElectricalPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#WhitePill -->
+
+    <owl:Class rdf:about="#WhitePill">
+        <rdfs:subClassOf rdf:resource="&abstract_concepts;White"/>
+        <rdfs:subClassOf rdf:resource="#Pill"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#YellowButton -->
+
+    <owl:Class rdf:about="#YellowButton">
+        <rdfs:subClassOf rdf:resource="#Button"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul.owl#YellowLamp -->
+
+    <owl:Class rdf:about="#YellowLamp">
+        <rdfs:subClassOf rdf:resource="&abstract_concepts;Yellow"/>
+        <rdfs:subClassOf rdf:resource="#Lamp"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dfki.de/isreal/spatial_ontology.owl#SpatialObject -->
+
+    <owl:Class rdf:about="&spatial_ontology;SpatialObject"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/spatial_ontology.owl#SpatialZone -->
+
+    <owl:Class rdf:about="&spatial_ontology;SpatialZone"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

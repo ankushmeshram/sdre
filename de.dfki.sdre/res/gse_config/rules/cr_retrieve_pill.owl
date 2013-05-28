@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:process="http://www.daml.org/services/owl-s/1.1/Process.owl#"
+    xmlns:flight-company="http://www.dfki.de/isreal/messemodul.owl#"
+    xmlns:pddxml="http://www.dfki.de/isreal/pddxml.owl#"
+    xmlns:list="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:time="http://www.isi.edu/~pan/damltime/time-entry.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:expr="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns="http://www.dfki.de/isreal/cr_retrieve_pill.owl#"
+    xmlns:service="http://www.daml.org/services/owl-s/1.1/Service.owl#"
+    xmlns:grounding="http://www.daml.org/services/owl-s/1.1/Grounding.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:profile="http://www.daml.org/services/owl-s/1.1/Profile.owl#"
+  xml:base="http://www.dfki.de/isreal/cr_retrieve_pill.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.dfki.de/isreal/messemodul.owl"/>
+    <owl:imports rdf:resource="http://www.dfki.de/isreal/pddxml.owl"/>
+  </owl:Ontology>
+  <profile:Profile rdf:ID="cr_retrieve_pillProfile">
+    <profile:hasInput>
+      <process:Input rdf:ID="self">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.dfki.de/isreal/messemodul.owl#MesseModul</process:parameterType>
+      </process:Input>
+    </profile:hasInput>
+    <profile:hasLocal>
+      <process:Local rdf:ID="pill">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.dfki.de/isreal/messemodul.owl#Pill</process:parameterType>
+      </process:Local>
+    </profile:hasLocal>
+    <profile:hasLocal>
+      <process:Local rdf:ID="cup">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.dfki.de/isreal/messemodul.owl#Cup</process:parameterType>
+      </process:Local>
+    </profile:hasLocal>
+    <profile:hasLocal>
+      <process:Local rdf:ID="cuparea">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.dfki.de/isreal/spatial_ontology.owl#SpatialZone</process:parameterType>
+      </process:Local>
+    </profile:hasLocal>
+    <profile:hasLocal>
+      <process:Local rdf:ID="chip">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.dfki.de/isreal/messemodul.owl#RfIDChip</process:parameterType>
+      </process:Local>
+    </profile:hasLocal>
+    <profile:hasLocal>
+      <process:Local rdf:ID="magarea">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.dfki.de/isreal/spatial_ontology.owl#SpatialZone</process:parameterType>
+      </process:Local>
+    </profile:hasLocal>
+    <profile:hasLocal>
+      <process:Local rdf:ID="col">
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.dfki.de/isreal/abstract_concepts.owl#Color</process:parameterType>
+      </process:Local>
+    </profile:hasLocal>
+    <profile:serviceName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Context Rule: Fill a pill into a cup.</profile:serviceName>
+    <profile:textDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Fill a pill into a cup.</profile:textDescription>
+    <profile:has_process>
+	<process:AtomicProcess rdf:ID="cr_retrieve_pillAtomicProcess">
+        <process:hasPrecondition>
+          <pddxml:PDDXML-Condition rdf:ID="PDDXML-Precondition">
+            <expr:expressionBody rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+		&lt;and>
+		&lt;pred name="http://www.dfki.de/isreal/abstract_concepts.owl#On">
+			&lt;param>?http://www.dfki.de/isreal/cr_retrieve_pill.owl#self&lt;/param>
+			&lt;/pred>
+		&lt;pred name="http://www.dfki.de/isreal/spatial_ontology.owl#isLocatedIn">
+			&lt;param>?http://www.dfki.de/isreal/cr_retrieve_pill.owl#pill&lt;/param>
+			&lt;param>?http://www.dfki.de/isreal/cr_retrieve_pill.owl#magarea&lt;/param>
+			&lt;/pred>
+		&lt;pred name="http://www.dfki.de/isreal/messemodul.owl#consistsOf">
+			&lt;param>?http://www.dfki.de/isreal/cr_retrieve_pill.owl#self&lt;/param>
+			&lt;param>?http://www.dfki.de/isreal/cr_retrieve_pill.owl#cup&lt;/param>
+			&lt;/pred>
+		&lt;pred name="http://www.dfki.de/isreal/messemodul.owl#hasCargoArea">
+			&lt;param>?http://www.dfki.de/isreal/cr_retrieve_pill.owl#cup&lt;/param>
+			&lt;param>?http://www.dfki.de/isreal/cr_retrieve_pill.owl#cuparea&lt;/param>
+			&lt;/pred>
+		&lt;pred name="http://www.dfki.de/isreal/messemodul.owl#fixedAt">
+			&lt;param>?http://www.dfki.de/isreal/cr_retrieve_pill.owl#chip&lt;/param>
+			&lt;param>?http://www.dfki.de/isreal/cr_retrieve_pill.owl#cup&lt;/param>
+			&lt;/pred>
+		&lt;pred name="http://www.dfki.de/isreal/messemodul.owl#stores">
+			&lt;param>?http://www.dfki.de/isreal/cr_retrieve_pill.owl#chip&lt;/param>
+			&lt;param>?http://www.dfki.de/isreal/cr_retrieve_pill.owl#col&lt;/param>
+			&lt;/pred>
+		&lt;pred name="http://www.dfki.de/isreal/messemodul.owl#hasColor">
+			&lt;param>?http://www.dfki.de/isreal/cr_retrieve_pill.owl#pill&lt;/param>
+			&lt;param>?http://www.dfki.de/isreal/cr_retrieve_pill.owl#col&lt;/param>
+			&lt;/pred>
+		&lt;/and>
+		</expr:expressionBody>
+          </pddxml:PDDXML-Condition>
+        </process:hasPrecondition>
+        <process:hasInput rdf:resource="#self"/>
+	<process:hasLocal rdf:resource="#pill"/>
+	<process:hasLocal rdf:resource="#cup"/>
+	<process:hasLocal rdf:resource="#cuparea"/>
+	<process:hasLocal rdf:resource="#chip"/>
+	<process:hasLocal rdf:resource="#magarea"/>
+	<process:hasLocal rdf:resource="#col"/>
+        <service:describes>
+          <service:Service rdf:ID="cr_retrieve_pillService">
+            <service:describedBy rdf:resource="#cr_retrieve_pillAtomicProcess"/>
+            <service:supports>
+              <grounding:WsdlGrounding rdf:ID="cr_retrieve_pillWsdlGrounding">
+                <service:supportedBy rdf:resource="#cr_retrieve_pillService"/>
+              </grounding:WsdlGrounding>
+            </service:supports>
+            <service:presents rdf:resource="#cr_retrieve_pillProfile"/>
+          </service:Service>
+        </service:describes>
+        <process:hasResult>
+          <process:Result rdf:ID="Result">
+            <process:hasEffect>
+              <pddxml:PDDXML-Expression rdf:ID="PDDXML-Effect">
+                <expr:expressionBody rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+			&lt;and>
+			&lt;pred name="http://www.dfki.de/isreal/spatial_ontology.owl#isLocatedIn">
+				&lt;param>?http://www.dfki.de/isreal/cr_retrieve_pill.owl#pill&lt;/param>
+				&lt;param>?http://www.dfki.de/isreal/cr_retrieve_pill.owl#cuparea&lt;/param>
+				&lt;/pred>
+			&lt;not>
+			&lt;pred name="http://www.dfki.de/isreal/spatial_ontology.owl#isLocatedIn">
+				&lt;param>?http://www.dfki.de/isreal/cr_retrieve_pill.owl#pill&lt;/param>
+				&lt;param>?http://www.dfki.de/isreal/cr_retrieve_pill.owl#magarea&lt;/param>
+				&lt;/pred>
+			&lt;pred name="http://www.dfki.de/isreal/messemodul.owl#stores">
+				&lt;param>?http://www.dfki.de/isreal/cr_retrieve_pill.owl#chip&lt;/param>
+				&lt;param>?http://www.dfki.de/isreal/cr_retrieve_pill.owl#col&lt;/param>
+				&lt;/pred>
+			&lt;/not>	
+			&lt;/and>
+		    </expr:expressionBody>
+              </pddxml:PDDXML-Expression>
+            </process:hasEffect>
+          </process:Result>
+        </process:hasResult>
+      </process:AtomicProcess>
+    </profile:has_process>
+    <service:presentedBy rdf:resource="#cr_retrieve_pillService"/>
+<profile:serviceParameter>
+	<profile:ServiceParameter rdf:ID="SParam">
+	    <profile:serviceParameterName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ISReal_Service_Type</profile:serviceParameterName>
+	    <profile:sParameter rdf:resource="http://www.dfki.de/isreal/isreal_service_parameters.owl#SE_SERVICE"/>
+	</profile:ServiceParameter>
+    </profile:serviceParameter>
+  </profile:Profile>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 2.1, Build 284)  http://protege.stanford.edu -->
+

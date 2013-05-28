@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY room "http://www.dfki.de/isreal/room.owl#" >
+    <!ENTITY agent "http://www.dfki.de/isreal/agent.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY room_abox "http://www.dfki.de/isreal/room_abox.owl#" >
+    <!ENTITY messemodul "http://www.dfki.de/isreal/messemodul.owl#" >
+    <!ENTITY messemodul_abox "http://www.dfki.de/isreal/messemodul_abox.owl#" >
+    <!ENTITY spatial_ontology "http://www.dfki.de/isreal/spatial_ontology.owl#" >
+    <!ENTITY abstract_concepts "http://www.dfki.de/isreal/abstract_concepts.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.dfki.de/isreal/room_abox.owl#"
+     xml:base="http://www.dfki.de/isreal/room_abox.owl"
+     xmlns:messemodul_abox="http://www.dfki.de/isreal/messemodul_abox.owl#"
+     xmlns:agent="http://www.dfki.de/isreal/agent.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:spatial_ontology="http://www.dfki.de/isreal/spatial_ontology.owl#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:room_abox="http://www.dfki.de/isreal/room_abox.owl#"
+     xmlns:abstract_concepts="http://www.dfki.de/isreal/abstract_concepts.owl#"
+     xmlns:messemodul="http://www.dfki.de/isreal/messemodul.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:room="http://www.dfki.de/isreal/room.owl#">
+    <owl:Ontology rdf:about="">
+        <owl:imports rdf:resource="http://www.dfki.de/isreal/abstract_concepts.owl"/>
+        <owl:imports rdf:resource="http://www.dfki.de/isreal/agent.owl"/>
+        <owl:imports rdf:resource="http://www.dfki.de/isreal/messemodul_abox.owl"/>
+        <owl:imports rdf:resource="http://www.dfki.de/isreal/room.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.dfki.de/isreal/room.owl#fromRoom -->
+
+    <owl:ObjectProperty rdf:about="&room;fromRoom"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/room.owl#toRoom -->
+
+    <owl:ObjectProperty rdf:about="&room;toRoom"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/spatial_ontology.owl#isLocatedIn -->
+
+    <owl:ObjectProperty rdf:about="&spatial_ontology;isLocatedIn"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/spatial_ontology.owl#isNearAt -->
+
+    <owl:ObjectProperty rdf:about="&spatial_ontology;isNearAt"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Close -->
+
+    <owl:Class rdf:about="&abstract_concepts;Close"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/abstract_concepts.owl#Unlocked -->
+
+    <owl:Class rdf:about="&abstract_concepts;Unlocked"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/agent.owl#Agent -->
+
+    <owl:Class rdf:about="&agent;Agent"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/room.owl#Door -->
+
+    <owl:Class rdf:about="&room;Door"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/room.owl#Room -->
+
+    <owl:Class rdf:about="&room;Room"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/spatial_ontology.owl#SpatialObject -->
+
+    <owl:Class rdf:about="&spatial_ontology;SpatialObject"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul_abox.owl#engineX -->
+
+    <owl:Thing rdf:about="&messemodul_abox;engineX">
+        <spatial_ontology:isLocatedIn rdf:resource="#roomF"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.dfki.de/isreal/messemodul_abox.owl#whitePill01 -->
+
+    <owl:Thing rdf:about="&messemodul_abox;whitePill01"/>
+    
+
+
+    <!-- http://www.dfki.de/isreal/room_abox.owl#NANCY -->
+
+    <owl:Thing rdf:about="#NANCY">
+        <rdf:type rdf:resource="&agent;Agent"/>
+        <spatial_ontology:isLocatedIn rdf:resource="#roomF"/>
+        <spatial_ontology:isNearAt rdf:resource="#startPoint01"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.dfki.de/isreal/room_abox.owl#doorDE -->
+
+    <abstract_concepts:Unlocked rdf:about="#doorDE">
+        <rdf:type rdf:resource="&abstract_concepts;Close"/>
+        <rdf:type rdf:resource="&room;Door"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <room:fromRoom rdf:resource="#roomD"/>
+        <spatial_ontology:isLocatedIn rdf:resource="#roomD"/>
+        <room:toRoom rdf:resource="#roomE"/>
+        <spatial_ontology:isLocatedIn rdf:resource="#roomE"/>
+    </abstract_concepts:Unlocked>
+    
+
+
+    <!-- http://www.dfki.de/isreal/room_abox.owl#doorDF -->
+
+    <room:Door rdf:about="#doorDF">
+        <rdf:type rdf:resource="&abstract_concepts;Close"/>
+        <rdf:type rdf:resource="&abstract_concepts;Unlocked"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <room:fromRoom rdf:resource="#roomD"/>
+        <spatial_ontology:isLocatedIn rdf:resource="#roomD"/>
+        <room:toRoom rdf:resource="#roomF"/>
+        <spatial_ontology:isLocatedIn rdf:resource="#roomF"/>
+    </room:Door>
+    
+
+
+    <!-- http://www.dfki.de/isreal/room_abox.owl#doorEF -->
+
+    <abstract_concepts:Unlocked rdf:about="#doorEF">
+        <rdf:type rdf:resource="&abstract_concepts;Close"/>
+        <rdf:type rdf:resource="&room;Door"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <room:fromRoom rdf:resource="#roomE"/>
+        <spatial_ontology:isLocatedIn rdf:resource="#roomE"/>
+        <spatial_ontology:isLocatedIn rdf:resource="#roomF"/>
+        <room:toRoom rdf:resource="#roomF"/>
+    </abstract_concepts:Unlocked>
+    
+
+
+    <!-- http://www.dfki.de/isreal/room_abox.owl#roomD -->
+
+    <room:Room rdf:about="#roomD">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </room:Room>
+    
+
+
+    <!-- http://www.dfki.de/isreal/room_abox.owl#roomE -->
+
+    <room:Room rdf:about="#roomE">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </room:Room>
+    
+
+
+    <!-- http://www.dfki.de/isreal/room_abox.owl#roomF -->
+
+    <owl:Thing rdf:about="#roomF">
+        <rdf:type rdf:resource="&room;Room"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.dfki.de/isreal/room_abox.owl#startPoint01 -->
+
+    <owl:Thing rdf:about="#startPoint01">
+        <rdf:type rdf:resource="&spatial_ontology;SpatialObject"/>
+        <spatial_ontology:isLocatedIn rdf:resource="#roomF"/>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

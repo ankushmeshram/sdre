@@ -2,38 +2,26 @@ package de.dfki.isreal.semantic.impl;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.openrdf.model.URI;
 import org.openrdf.model.Value;
 
 import de.dfki.isreal.components.GSE;
-import de.dfki.isreal.subcomponents.FactChangeEventHandler;
-import de.dfki.isreal.subcomponents.OMSDecider;
-import de.dfki.isreal.subcomponents.ServiceExecution;
 import de.dfki.isreal.data.BindingList;
-import de.dfki.isreal.data.Parameter;
 import de.dfki.isreal.data.SPARQLDLResult;
-import de.dfki.isreal.data.ServiceWrapper;
 import de.dfki.isreal.data.State;
 import de.dfki.isreal.data.Statement;
-import de.dfki.isreal.data.impl.ConditionalEffect;
 import de.dfki.isreal.data.impl.StatementImpl;
 import de.dfki.isreal.helpers.Profiler;
-import de.dfki.isreal.network.callerfactories.DemonstratorCallerFactory;
-import de.dfki.isreal.network.protos.ExchangeDataProtos.DemonstratorMessage;
 import de.dfki.isreal.semantic.oms.components.Cache;
-import de.dfki.isreal.semantic.oms.components.DetailedServiceRegistry;
-import de.dfki.isreal.semantic.oms.components.impl.CacheImpl;
-import de.dfki.isreal.semantic.oms.components.impl.ContinousQueryRegistry;
 import de.dfki.isreal.semantic.oms.components.impl.OMSConfig;
 import de.dfki.isreal.semantic.oms.components.impl.OMSDeciderImpl;
-import de.dfki.isreal.semantic.services.ServiceExecutionThreadImpl;
-import de.dfki.isreal.semantic.services.ServiceRegistryImpl;
-
+import de.dfki.isreal.subcomponents.FactChangeEventHandler;
+import de.dfki.isreal.subcomponents.OMSDecider;
 import eu.larkc.core.data.BooleanInformationSet;
 import eu.larkc.core.data.CloseableIterator;
 import eu.larkc.core.data.SetOfStatements;
@@ -54,35 +42,42 @@ import eu.larkc.core.query.SPARQLQueryImpl;
 public class GlobalSESControllerImpl implements GSE {
 
 	private Logger logger = Logger.getLogger(GlobalSESControllerImpl.class);
-	private boolean logging = false;
-	private DemonstratorCallerFactory dem = new DemonstratorCallerFactory();
+//	
+//	private boolean logging = false;
+//	
+//	private DemonstratorCallerFactory dem = new DemonstratorCallerFactory();
 
 	OMSDecider OMS;
-	DetailedServiceRegistry SReg;
-	ServiceExecution SEx;
-	ContinousQueryRegistry QReg;
+//		
+//	DetailedServiceRegistry SReg;
+//	ServiceExecution SEx;
+//	ContinousQueryRegistry QReg;
 
 	Cache cache;
 	
-	/**
-	 * Currently registered fact change event handlers.
-	 */
-	Map<Integer, FactChangeEventHandler>	factChangeHandlers;
+//	
+//	/**
+//	 * Currently registered fact change event handlers.
+//	 */
+//	Map<Integer, FactChangeEventHandler>	factChangeHandlers;
 
 	public GlobalSESControllerImpl(String config) {
 		logger.info("init GlobalSESControllerImpl...");
 
 		OMSConfig.init(config);
-		if (OMSConfig.isContQueriesEnabled()) {
-			QReg = new ContinousQueryRegistry();
-		}
-
-		if (logging){
-		dem.sendMessage("Initializing GlobalSE...",
-				DemonstratorMessage.Component.GSE.getNumber(), DemonstratorMessage.DMsgType.INIT.getNumber(), false);
-		dem.sendMessage("Initializing OMS...",
-				DemonstratorMessage.Component.GSE.getNumber(), DemonstratorMessage.DMsgType.INIT.getNumber(), false);
-		}
+		
+//		
+//		if (OMSConfig.isContQueriesEnabled()) {
+//			QReg = new ContinousQueryRegistry();
+//		}
+		
+//
+//		if (logging){
+//		dem.sendMessage("Initializing GlobalSE...",
+//				DemonstratorMessage.Component.GSE.getNumber(), DemonstratorMessage.DMsgType.INIT.getNumber(), false);
+//		dem.sendMessage("Initializing OMS...",
+//				DemonstratorMessage.Component.GSE.getNumber(), DemonstratorMessage.DMsgType.INIT.getNumber(), false);
+//		}
 		
 		Integer httpPort = OMSConfig.getHttpPort();
 		if(httpPort != null && httpPort != 0)
@@ -90,22 +85,25 @@ public class GlobalSESControllerImpl implements GSE {
 		else
 			OMS = new OMSDeciderImpl(OMSConfig.getOWLIMRepository());
 
-		if (logging){
-		dem.sendMessage(
-				"Initializing ServiceRepository...", DemonstratorMessage.Component.GSE.getNumber(),
-				DemonstratorMessage.DMsgType.INIT.getNumber(), false);
-		}
+//		
+//		if (logging){
+//		dem.sendMessage(
+//				"Initializing ServiceRepository...", DemonstratorMessage.Component.GSE.getNumber(),
+//				DemonstratorMessage.DMsgType.INIT.getNumber(), false);
+//		}
 		
-		if (OMSConfig.isContQueriesEnabled()){
-			SReg = new ServiceRegistryImpl(QReg);
-		} else{
-			SReg = new ServiceRegistryImpl();
-		}
+//		
+//		if (OMSConfig.isContQueriesEnabled()){
+//			SReg = new ServiceRegistryImpl(QReg);
+//		} else{
+//			SReg = new ServiceRegistryImpl();
+//		}
 		
-		SEx = new ServiceExecutionThreadImpl(SReg);
-		if (OMSConfig.isCacheEnabled()) {
-			cache = new CacheImpl();
-		}
+//		
+//		SEx = new ServiceExecutionThreadImpl(SReg);
+//		if (OMSConfig.isCacheEnabled()) {
+//			cache = new CacheImpl();
+//		}
 
 		ArrayList<File> onts = new ArrayList<File>();
 		for (String ont : OMSConfig.getImportURIStrings()){
@@ -127,14 +125,17 @@ public class GlobalSESControllerImpl implements GSE {
 			addServices(OMSConfig.getURIMappings().get(service));
 		}
 
-		printServices();
+//		
+//		printServices();
 
-		if (logging){
-		dem.sendMessage("Initialized GlobalSE.",
-				DemonstratorMessage.Component.GSE.getNumber(), DemonstratorMessage.DMsgType.INIT.getNumber(), false);
-		}
+//		
+//		if (logging){
+//		dem.sendMessage("Initialized GlobalSE.",
+//				DemonstratorMessage.Component.GSE.getNumber(), DemonstratorMessage.DMsgType.INIT.getNumber(), false);
+//		}
 
-		factChangeHandlers = new HashMap<Integer, FactChangeEventHandler>();
+//		
+//		factChangeHandlers = new HashMap<Integer, FactChangeEventHandler>();
 	}
 
 	public List<Statement> getObjectFacts(String instance_uri) {
@@ -157,7 +158,7 @@ public class GlobalSESControllerImpl implements GSE {
 		while (it.hasNext()) {
 			try {
 				Binding b = (Binding) it.next();
-				List vals = b.getValues();
+				List<Value> vals = b.getValues();
 				String y_val = ((Value) vals.get(bnd.getVariables()
 						.indexOf("y"))).stringValue();
 				String z_val = ((Value) vals.get(bnd.getVariables()
@@ -247,11 +248,14 @@ public class GlobalSESControllerImpl implements GSE {
 				}
 			}
 		}
-		if (OMSConfig.isContQueriesEnabled()) {
-			for (Statement s : a) {
-				QReg.checkStatement(s);
-			}
-		}
+		
+//		
+//		if (OMSConfig.isContQueriesEnabled()) {
+//			for (Statement s : a) {
+//				QReg.checkStatement(s);
+//			}
+//		}
+		
 		OMS.insert(a);
 		
 //		if(logging) {
@@ -264,12 +268,13 @@ public class GlobalSESControllerImpl implements GSE {
 //			}
 //			dem.sendMessage(msg, DemonstratorMessage.Component.GSE.getNumber(), DemonstratorMessage.DMsgType.EXECUTION.getNumber(), false);
 //		}
-		
-		// fact change event handling
-		for(FactChangeEventHandler handler : factChangeHandlers.values()) {
-			if(handler.check(a))
-				handler.handle();
-		}
+	
+//		
+//		// fact change event handling
+//		for(FactChangeEventHandler handler : factChangeHandlers.values()) {
+//			if(handler.check(a))
+//				handler.handle();
+//		}
 	}
 
 	public synchronized void remove(List<Statement> a) {
@@ -292,12 +297,13 @@ public class GlobalSESControllerImpl implements GSE {
 //			}
 //			dem.sendMessage(msg, DemonstratorMessage.Component.GSE.getNumber(), DemonstratorMessage.DMsgType.EXECUTION.getNumber(), false);
 //		}
-				
-		// fact change event handling
-		for(FactChangeEventHandler handler : factChangeHandlers.values()) {
-			if(handler.check(a))
-				handler.handle();
-		}
+	
+//		
+//		// fact change event handling
+//		for(FactChangeEventHandler handler : factChangeHandlers.values()) {
+//			if(handler.check(a))
+//				handler.handle();
+//		}
 	}
 
 	public synchronized void update(List<Statement> al) {
@@ -321,31 +327,36 @@ public class GlobalSESControllerImpl implements GSE {
 //			dem.sendMessage(msg, DemonstratorMessage.Component.GSE.getNumber(), DemonstratorMessage.DMsgType.EXECUTION.getNumber(), false);
 //		}	
 		
-		// fact change event handling
-		for(FactChangeEventHandler handler : factChangeHandlers.values()) {
-			if(handler.check(al))
-				handler.handle();
-		}
+//		
+//		// fact change event handling
+//		for(FactChangeEventHandler handler : factChangeHandlers.values()) {
+//			if(handler.check(al))
+//				handler.handle();
+//		}
 	}
 
 	public boolean instanceChecking(java.net.URI i, java.net.URI c) {
 		return OMS.instanceChecking(i, c);
 	}
 
+	
 	public void addService(String uri) {
-		SReg.addService(uri);
+//		
+//		SReg.addService(uri);
 	}
 
 	public List<String> getAllServices() {
-		return SReg.getAllServices();
+//
+//		return SReg.getAllServices();
+		return Collections.emptyList();
 	}
-
-	public boolean printServices() {
-		return SReg.printServices();
-	}
+//
+//	public boolean printServices() {
+//		return SReg.printServices();
+//	}
 
 	public void removeService(String uri) {
-		SReg.removeService(uri);
+//		SReg.removeService(uri);
 	}
 
 	public void applyContextRules() {
@@ -364,41 +375,49 @@ public class GlobalSESControllerImpl implements GSE {
 		return OMS.getInitialStateFromKB();
 	}
 
+	
 	public void addServices(String ont_uri) {
-		SReg.addServices(ont_uri);
+//	
+//		SReg.addServices(ont_uri);
 	}
 
 	public String getServiceDescription(String service_uri) {
-		return SReg.getServiceDescription(service_uri);
+//	
+//		return SReg.getServiceDescription(service_uri);
+		return null;
 	}
-
-	public List<ConditionalEffect> getServiceEffects(String service_uri) {
-		return SReg.getServiceEffects(service_uri);
-	}
+//
+//	public List<ConditionalEffect> getServiceEffects(String service_uri) {
+//		return SReg.getServiceEffects(service_uri);
+//	}
 
 	public List<String> getServiceInputs(String service_uri) {
-		return SReg.getServiceInputs(service_uri);
+//	
+//		return SReg.getServiceInputs(service_uri);
+		return Collections.emptyList();
 	}
-
-	public List<String> getServiceLocals(String service_uri) {
-		return SReg.getServiceLocals(service_uri);
-	}
-
-	public List<String> getServiceOutputs(String service_uri) {
-		return SReg.getServiceOutputs(service_uri);
-	}
-
-	public List<String> getServicePreconditionExpression(String service_uri) {
-		return SReg.getServicePreconditionExpression(service_uri);
-	}
+//
+//	public List<String> getServiceLocals(String service_uri) {
+//		return SReg.getServiceLocals(service_uri);
+//	}
+//
+//	public List<String> getServiceOutputs(String service_uri) {
+//		return SReg.getServiceOutputs(service_uri);
+//	}
+//
+//	public List<String> getServicePreconditionExpression(String service_uri) {
+//		return SReg.getServicePreconditionExpression(service_uri);
+//	}
 
 	public List<String> invokeSemanticService(String service_uri, BindingList inp_bnd) {
-		return SEx.invokeSemanticService(service_uri, inp_bnd);
+//	
+//		return SEx.invokeSemanticService(service_uri, inp_bnd);
+		return Collections.emptyList();
 	}
-
-	public List<Parameter> getServiceParameters(String s_uri) {
-		return SReg.getServiceParameters(s_uri);
-	}
+//
+//	public List<Parameter> getServiceParameters(String s_uri) {
+//		return SReg.getServiceParameters(s_uri);
+//	}
 
 	@Override
 	public String getProfileReport() {
@@ -410,41 +429,48 @@ public class GlobalSESControllerImpl implements GSE {
 		return OMS.sparqldlProcessing(query);
 	}
 
+	
 	@Override
 	public List<String> getAgentServices() {
-		return SReg.getAgentServices();
+//
+//		return SReg.getAgentServices();
+		return Collections.emptyList();
 	}
 
 	@Override
 	public List<String> getInteractionServices() {
-		return SReg.getInteractionServices();
+//		
+//		return SReg.getInteractionServices();
+		return Collections.emptyList();
 	}
 
 	@Override
 	public List<String> getSEServices() {
-		return SReg.getSEServices();
+//		
+//		return SReg.getSEServices();
+		return Collections.emptyList();
 	}
-
-	public String getSelfName(String r_uri) {
-		return SReg.getSelfName(r_uri);
-	}
-
-	public String getSelfType(String r_uri) {
-		return SReg.getSelfType(r_uri);
-	}
-
-	public int getServiceType(String s_uri) {
-		return SReg.getServiceType(s_uri);
-	}
-
-	
-	public ContinousQueryRegistry getQReg(){
-		return QReg;
-	}
-
-	public ServiceWrapper getServiceInRegistry(String uri) {
-		return SReg.getServiceInRegistry(uri);
-	}
+//
+//	public String getSelfName(String r_uri) {
+//		return SReg.getSelfName(r_uri);
+//	}
+//
+//	public String getSelfType(String r_uri) {
+//		return SReg.getSelfType(r_uri);
+//	}
+//
+//	public int getServiceType(String s_uri) {
+//		return SReg.getServiceType(s_uri);
+//	}
+//
+//	
+//	public ContinousQueryRegistry getQReg(){
+//		return QReg;
+//	}
+//
+//	public ServiceWrapper getServiceInRegistry(String uri) {
+//		return SReg.getServiceInRegistry(uri);
+//	}
 
 	@Override
 	public HashMap<String, List<Statement>> getObjectFacts(
@@ -460,7 +486,8 @@ public class GlobalSESControllerImpl implements GSE {
 	
 	@Override
 	public synchronized void registerFactChangeEventHandler(FactChangeEventHandler handler) {
-		factChangeHandlers.put(handler.getId(), handler);
+//		
+//		factChangeHandlers.put(handler.getId(), handler);
 //		dem.sendMessage("Fact change perception listener ADDED:", DemonstratorMessage.Component.GSE.getNumber(), DemonstratorMessage.DMsgType.PERC.getNumber(), false);
 //		dem.sendMessage(handler.toString(), DemonstratorMessage.Component.GSE.getNumber(), DemonstratorMessage.DMsgType.PERC.getNumber(), false);
 	}
@@ -468,13 +495,15 @@ public class GlobalSESControllerImpl implements GSE {
 	@Override
 	public synchronized void unregisterFactChangeEventHandler(int handlerId) {
 		try {
-			FactChangeEventHandler handler = factChangeHandlers.remove(handlerId);
+//			
+//			FactChangeEventHandler handler = factChangeHandlers.remove(handlerId);
 //			dem.sendMessage("Fact change perception listener REMOVED:", DemonstratorMessage.Component.GSE.getNumber(), DemonstratorMessage.DMsgType.PERC.getNumber(), false);
 //			dem.sendMessage(handler.toString(), DemonstratorMessage.Component.GSE.getNumber(), DemonstratorMessage.DMsgType.PERC.getNumber(), false);
 		}
 		catch(NullPointerException e) {
 			logger.error("Handler ID " + handlerId + " not registered at GSE.", e);
-			dem.sendMessage("Handler ID " + handlerId + " not registered at GSE.", DemonstratorMessage.Component.GSE.getNumber(), DemonstratorMessage.DMsgType.EXECUTION.getNumber(), false);
+//			
+//			dem.sendMessage("Handler ID " + handlerId + " not registered at GSE.", DemonstratorMessage.Component.GSE.getNumber(), DemonstratorMessage.DMsgType.EXECUTION.getNumber(), false);
 		}
 	}
 }

@@ -1,0 +1,30 @@
+#
+# Sesame configuration template for a owlim repository
+#
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rep: <http://www.openrdf.org/config/repository#>.
+@prefix sr: <http://www.openrdf.org/config/repository/sail#>.
+@prefix sail: <http://www.openrdf.org/config/sail#>.
+@prefix owlim: <http://www.ontotext.com/trree/owlim#>.
+
+[] a rep:Repository ;
+   rep:repositoryID "isreal" ;
+   rdfs:label "Junit Repository" ;
+   rep:repositoryImpl [
+      rep:repositoryType "openrdf:SailRepository" ;
+      sr:sailImpl [
+         sail:sailType "swiftowlim:Sail" ;
+         owlim:ruleset "owl-horst-optimized" ;
+	 owlim:partialRDFS  "false" ;
+         owlim:noPersist "true" ;
+         owlim:storage-folder "junit-storage" ;
+         owlim:jobsize "200" ;
+         owlim:new-triples-file "new-triples-file.nt" ;
+		 owlim:base-URL "http://www.dfki.de/isreal/messemodul.owl#" ;
+         owlim:entity-index-size "200000" ;
+		 owlim:repository-type "in-memory-repository" ;
+		 # owlim:imports "./config/owl.rdfs" ;
+		 # owlim:defaultNS "http://www.w3.org/2002/07/owl#" 
+         
+      ]
+   ].

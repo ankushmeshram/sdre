@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ISRealOMSConfig:OMSConfig xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ISRealOMSConfig="http://www.dfki.de/isreal/omsconfig/2011/omsconfig" cacheEnabled="true" tripleStoreSystemName="owlim" httpPort="9091" tripleStoreConfigPath="\\third_party_configs\\owlim.ttl" resourcePath="C:\\workspace_sdre\\de.dfki.sdre\\res\\gse_config\\" semReasoningEnabled="true" repositoryName="sdre_repo">
+  
+  <ontologies abstractURIString="http://www.icmwind.com/instances/iwo-abox-04.09.2008.owl">
+    <physicalURIString>iwo-abox-04.09.2008.owl</physicalURIString>
+  </ontologies>
+  
+<!--  
+  <ontologies abstractURIString="http://www.icmwind.com/icmwindontology.owl">
+    <physicalURIString>icmwindontology.owl</physicalURIString>
+  </ontologies>
+  
+
+  <ontologies abstractURIString="http://www.icmwind.com/instance/iwo_abox.owl">
+    <physicalURIString>iwo_abox.owl</physicalURIString>
+  </ontologies>
+  
+  <ontologies abstractURIString="http://www.icmwind.com/instances/IWO-12.09.2008-13.09.2008.owl">
+    <physicalURIString>iwo-abox-12.09.2008-13.09.2008.owl</physicalURIString>
+  </ontologies>
+ 
+  <ontologies abstractURIString="http://www.icmwind.com/instances/IWO-info-12.09.2008-13.09.2008.owl">
+    <physicalURIString>iwo-infobox-12.09.2008-13.09.2008.owl</physicalURIString>
+  </ontologies>
+  -->
+
+<!-- 2 days 
+  <ontologies abstractURIString="http://www.icmwind.com/instances/IWO-10.10.2008-12.10.2008.owl">
+    <physicalURIString>iwo-abox-10.10.2008-12.10.2008.owl</physicalURIString>
+  </ontologies>
+ 
+  <ontologies abstractURIString="http://www.icmwind.com/instances/IWO-info-10.10.2008-12.10.2008.owl">
+    <physicalURIString>iwo-infobox-10.10.2008-12.10.2008.owl</physicalURIString>
+  </ontologies>
+--> 
+
+  <!-- 4 days
+  <ontologies abstractURIString="http://www.icmwind.com/instances/IWO-10.10.2008-15.10.2008.owl">
+    <physicalURIString>iwo-abox-10.10.2008-15.10.2008.owl</physicalURIString>
+  </ontologies>
+ 
+  <ontologies abstractURIString="http://www.icmwind.com/instances/IWO-info-10.10.2008-15.10.2008.owl">
+    <physicalURIString>iwo-infobox-10.10.2008-15.10.2008.owl</physicalURIString>
+  </ontologies>
+-->
+  
+<!-- 2 days
+  <ontologies abstractURIString="http://www.icmwind.com/instances/IWO-10.10.2008-13.10.2008.owl">
+    <physicalURIString>iwo-abox-10.10.2008-13.10.2008.owl</physicalURIString>
+  </ontologies>
+ 
+  <ontologies abstractURIString="http://www.icmwind.com/instances/IWO-info-10.10.2008-13.10.2008.owl">
+    <physicalURIString>iwo-infobox-10.10.2008-13.10.2008.owl</physicalURIString>
+  </ontologies>
+-->  
+
+  <!-- 6days
+  <ontologies abstractURIString="http://www.icmwind.com/instances/IWO-10.10.2008-17.10.2008.owl">
+    <physicalURIString>iwo-abox-10.10.2008-17.10.2008.owl</physicalURIString>
+  </ontologies>
+ 
+  <ontologies abstractURIString="http://www.icmwind.com/instances/IWO-info-10.10.2008-17.10.2008.owl">
+    <physicalURIString>iwo-infobox-10.10.2008-17.10.2008.owl</physicalURIString>
+  </ontologies>
+  -->
+  
+  <!-- 10 days
+  <ontologies abstractURIString="http://www.icmwind.com/instances/IWO-10.10.2008-21.10.2008.owl">
+    <physicalURIString>iwo-abox-10.10.2008-21.10.2008.owl</physicalURIString>
+  </ontologies>
+ 
+  <ontologies abstractURIString="http://www.icmwind.com/instances/IWO-info-10.10.2008-21.10.2008.owl">
+    <physicalURIString>iwo-infobox-10.10.2008-21.10.2008.owl</physicalURIString>
+  </ontologies>
+  -->
+    
+  <!-- 
+  <ontologies abstractURIString="http://www.dfki.de/isreal/room.owl">
+    <physicalURIString>room.owl</physicalURIString>
+  </ontologies>
+  <ontologies abstractURIString="http://www.dfki.de/isreal/room_abox.owl">
+    <physicalURIString>room_abox.owl</physicalURIString>
+  </ontologies>
+  <ontologies abstractURIString="http://www.dfki.de/isreal/room_abox2.owl">
+    <physicalURIString>room_abox2.owl</physicalURIString>
+  </ontologies>
+  -->
+  
+  <!--
+  <imports abstractURIString="http://www.w3.org/1999/02/22-rdf-syntax-ns">
+    <physicalURIString>22-rdf-syntax-ns.rdf</physicalURIString>
+  </imports>
+  <imports abstractURIString="http://www.w3.org/2002/07/owl">
+    <physicalURIString>owl.rdfs</physicalURIString>
+  </imports>
+  <imports abstractURIString="http://www.w3.org/2000/01/rdf-schema">
+    <physicalURIString>rdf-schema.rdf</physicalURIString>
+  </imports>
+  -->
+  
+</ISRealOMSConfig:OMSConfig>

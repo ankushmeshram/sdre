@@ -1,7 +1,6 @@
 package de.dfki.isreal.semantic.oms.components.impl;
 
 import java.io.File;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -27,6 +26,7 @@ import de.dfki.isreal.omsconfig.OntologyFile;
  */
 public class OMSConfig {
 
+	@SuppressWarnings("unused")
 	private static Logger logger = Logger.getLogger(OMSConfig.class);
 	
 	private static de.dfki.isreal.omsconfig.OMSConfig config = null;

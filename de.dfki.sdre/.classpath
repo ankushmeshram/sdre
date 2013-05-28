@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/de.dfki.isreal.semantic"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/de.dfki.isreal"/>
+	<classpathentry kind="lib" path="/de.dfki.isreal.semantic/libs/naga.steinertrees.queries-0.0.1.jar"/>
+	<classpathentry kind="lib" path="owlapi-distribution-3.4.4-bin.jar"/>
+	<classpathentry kind="lib" path="FaCTpp-OWLAPI-3.4-v1.6.2.jar"/>
+	<classpathentry kind="lib" path="sparqldl-api.jar"/>
+	<classpathentry kind="lib" path="sparqldl-api-javadoc.jar"/>
+	<classpathentry kind="lib" path="sparqldl-api-src.jar"/>
+	<classpathentry kind="lib" path="jpaul-2.5.1.jar"/>
+	<classpathentry kind="lib" path="jdom-1.1.3.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
