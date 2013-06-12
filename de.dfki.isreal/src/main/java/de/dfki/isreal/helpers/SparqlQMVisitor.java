@@ -5,17 +5,23 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.openrdf.query.algebra.Add;
 import org.openrdf.query.algebra.And;
 import org.openrdf.query.algebra.ArbitraryLengthPath;
 import org.openrdf.query.algebra.Avg;
 import org.openrdf.query.algebra.BNodeGenerator;
+import org.openrdf.query.algebra.BindingSetAssignment;
 import org.openrdf.query.algebra.Bound;
+import org.openrdf.query.algebra.Clear;
 import org.openrdf.query.algebra.Coalesce;
 import org.openrdf.query.algebra.Compare;
 import org.openrdf.query.algebra.CompareAll;
 import org.openrdf.query.algebra.CompareAny;
+import org.openrdf.query.algebra.Copy;
 import org.openrdf.query.algebra.Count;
+import org.openrdf.query.algebra.Create;
 import org.openrdf.query.algebra.Datatype;
+import org.openrdf.query.algebra.DeleteData;
 import org.openrdf.query.algebra.Difference;
 import org.openrdf.query.algebra.Distinct;
 import org.openrdf.query.algebra.EmptySet;
@@ -30,6 +36,7 @@ import org.openrdf.query.algebra.GroupElem;
 import org.openrdf.query.algebra.IRIFunction;
 import org.openrdf.query.algebra.If;
 import org.openrdf.query.algebra.In;
+import org.openrdf.query.algebra.InsertData;
 import org.openrdf.query.algebra.Intersection;
 import org.openrdf.query.algebra.IsBNode;
 import org.openrdf.query.algebra.IsLiteral;
@@ -42,10 +49,13 @@ import org.openrdf.query.algebra.Lang;
 import org.openrdf.query.algebra.LangMatches;
 import org.openrdf.query.algebra.LeftJoin;
 import org.openrdf.query.algebra.Like;
+import org.openrdf.query.algebra.Load;
 import org.openrdf.query.algebra.LocalName;
 import org.openrdf.query.algebra.MathExpr;
 import org.openrdf.query.algebra.Max;
 import org.openrdf.query.algebra.Min;
+import org.openrdf.query.algebra.Modify;
+import org.openrdf.query.algebra.Move;
 import org.openrdf.query.algebra.MultiProjection;
 import org.openrdf.query.algebra.Namespace;
 import org.openrdf.query.algebra.Not;
@@ -62,17 +72,18 @@ import org.openrdf.query.algebra.Reduced;
 import org.openrdf.query.algebra.Regex;
 import org.openrdf.query.algebra.SameTerm;
 import org.openrdf.query.algebra.Sample;
+import org.openrdf.query.algebra.Service;
 import org.openrdf.query.algebra.SingletonSet;
 import org.openrdf.query.algebra.Slice;
 import org.openrdf.query.algebra.StatementPattern;
 import org.openrdf.query.algebra.Str;
-import org.openrdf.query.algebra.StrDt;
-import org.openrdf.query.algebra.StrLang;
 import org.openrdf.query.algebra.Sum;
 import org.openrdf.query.algebra.Union;
 import org.openrdf.query.algebra.ValueConstant;
 import org.openrdf.query.algebra.Var;
 import org.openrdf.query.algebra.ZeroLengthPath;
+import org.openrdf.query.algebra.evaluation.function.rdfterm.StrDt;
+import org.openrdf.query.algebra.evaluation.function.rdfterm.StrLang;
 
 import de.dfki.isreal.data.Statement;
 import de.dfki.isreal.data.impl.StatementImpl;
@@ -647,18 +658,6 @@ public class SparqlQMVisitor implements QueryModelVisitor {
 	}
 
 	@Override
-	public void meet(StrDt arg0) throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void meet(StrLang arg0) throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void meet(Sample arg0) throws Exception {
 		// TODO Auto-generated method stub
 		
@@ -675,5 +674,73 @@ public class SparqlQMVisitor implements QueryModelVisitor {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void meet(Add arg0) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void meet(BindingSetAssignment arg0) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void meet(Clear arg0) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void meet(Copy arg0) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void meet(Create arg0) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void meet(DeleteData arg0) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void meet(InsertData arg0) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void meet(Load arg0) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void meet(Modify arg0) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void meet(Move arg0) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void meet(Service arg0) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 }

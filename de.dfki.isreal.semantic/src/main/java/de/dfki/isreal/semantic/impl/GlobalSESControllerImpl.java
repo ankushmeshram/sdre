@@ -506,4 +506,10 @@ public class GlobalSESControllerImpl implements GSE {
 //			dem.sendMessage("Handler ID " + handlerId + " not registered at GSE.", DemonstratorMessage.Component.GSE.getNumber(), DemonstratorMessage.DMsgType.EXECUTION.getNumber(), false);
 		}
 	}
+
+	@Override
+	public void closeTS() {
+		// TODO Auto-generated method stub
+		
+	}
 }

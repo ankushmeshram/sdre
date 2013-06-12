@@ -1,0 +1,23 @@
+Created At Wed Jun 12 21:17:32 CEST 2013
+
+****Check for TBV Fault*****
+
+Initialising ASK Query...
+------ASK Query------
+PREFIX iwo: <http://www.icmwind.com/icmwindontology.owl#>PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+ASK WHERE { ?tbv rdf:type iwo:Thermo_Bypass_Valve. ?tbv iwo:hasStatus ?st. ?st rdf:type iwo:Close. ?st iwo:isValveOpen ?vlv. ?tbv iwo:hasObservation ?obs. ?htcd rdf:type iwo:High_Cooler_Temperature_Difference. ?htcd iwo:hasObservation ?obs. }
+---------------------
+ASK Query Processing time : 6ms
+ASK Query Result - true
+*****************
+
+**** Inserting Faults *****
+
+Initialising CONSTRUCT Query for Insert TBV Faults...
+---- TBV Fault Insert CONSTRUCT Query ----
+PREFIX iwo: <http://www.icmwind.com/icmwindontology.owl#>PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+CONSTRUCT { ?cflt rdf:type iwo:Component_Fault. ?cflt iwo:faultyComponent ?tbv. ?cflt iwo:faultCondition ?sts. ?cflt iwo:faultCondition ?htcd. ?cflt iwo:faultOccurrenceTime ?time. ?cflt iwo:faultLevel ?alm. ?alm rdf:type iwo:Alarm. ?alm iwo:faultMessage "Check the component"^^xsd:string. } WHERE { ?tbv rdf:type iwo:Thermo_Bypass_Valve. ?tbv iwo:hasStatus ?sts. ?sts rdf:type iwo:Close. ?tbv iwo:hasObservation ?obs. ?sts  iwo:hasObservation ?obs. ?htcd rdf:type iwo:High_Cooler_Temperature_Difference. ?htcd iwo:hasObservation ?obs. ?htcd iwo:hasValue ?tmp. BIND(STRAFTER(str(?obs), "#") AS ?o). BIND(STRAFTER(str(?tbv), "#") AS ?t). BIND(IRI(CONCAT("http://www.icmwind.com/icmwindontology.owl#CF_",  CONCAT(CONCAT(?t, "_"), ?o))) AS ?cflt). BIND(IRI(CONCAT("http://www.icmwind.com/icmwindontology.owl#ALM_", CONCAT(CONCAT(?t, "_"), ?o))) AS ?alm). ?obs iwo:hasSamplingTime ?time }
+------------------------------------------
+CONSTRUCT Query TBV Fault Insert Processing time : 56478ms
+Fault Triples Inserted: 33360; CONSTRUCT Query TBV Fault Insert time : 17370ms
+*********************

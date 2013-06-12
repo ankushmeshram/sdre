@@ -13,5 +13,6 @@ import eu.larkc.plugin.decide.Decider;
 public interface OMSDecider extends Decider, Maintenance, SemanticReasoner {
 	
 	public State getInitialStateFromKB();
-	
+
+	public void closeTS();
 }

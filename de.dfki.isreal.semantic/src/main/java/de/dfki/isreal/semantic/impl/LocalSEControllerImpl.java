@@ -350,4 +350,11 @@ public class LocalSEControllerImpl implements LSE {
 		new LocalSEControllerImpl("NANCY", "http://www.dfki.de/isreal/room_abox.owl#NANCY" , path);
 	}
 
+
+	@Override
+	public void closeTS() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

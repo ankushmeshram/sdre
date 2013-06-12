@@ -326,5 +326,11 @@ public class TripleStoreAllegroGraphImpl implements TripleStorePlugin {
 
 	}
 
+	@Override
+	public void closeTS() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }

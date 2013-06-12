@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ISRealOMSConfig:OMSConfig xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ISRealOMSConfig="http://www.dfki.de/isreal/omsconfig/2011/omsconfig" cacheEnabled="true" tripleStoreSystemName="owlim" httpPort="9091" tripleStoreConfigPath="\\third_party_configs\\owlim.ttl" resourcePath="C:\\Users\\anme05\\git\\sdre\\\de.dfki.sdre\\res\\gse_config\\" semReasoningEnabled="true" repositoryName="sdre_repo">
+         
+  <ontologies abstractURIString="http://www.icmwind.com/instances/iwo-01.06.2011-03.06.2011.owl">
+    <physicalURIString>iwo-01.06.2011-03.06.2011.owl</physicalURIString>
+  </ontologies>
+       
+</ISRealOMSConfig:OMSConfig>

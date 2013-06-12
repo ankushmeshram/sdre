@@ -4,20 +4,12 @@ import info.aduna.iteration.CloseableIteration;
 
 import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
-import java.io.StringWriter;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.apache.log4j.Logger;
-import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.handler.AbstractHandler;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.openrdf.model.Graph;
 import org.openrdf.model.Literal;
@@ -28,7 +20,6 @@ import org.openrdf.model.ValueFactory;
 import org.openrdf.model.impl.GraphImpl;
 import org.openrdf.model.impl.LiteralImpl;
 import org.openrdf.model.impl.URIImpl;
-import org.openrdf.model.impl.ValueFactoryImpl;
 import org.openrdf.model.util.GraphUtil;
 import org.openrdf.model.vocabulary.RDF;
 import org.openrdf.query.Binding;
@@ -38,8 +29,6 @@ import org.openrdf.query.MalformedQueryException;
 import org.openrdf.query.QueryEvaluationException;
 import org.openrdf.query.QueryLanguage;
 import org.openrdf.query.TupleQueryResult;
-import org.openrdf.query.algebra.evaluation.impl.EvaluationStrategyImpl;
-import org.openrdf.query.impl.EmptyBindingSet;
 import org.openrdf.query.parser.QueryParser;
 import org.openrdf.query.parser.QueryParserUtil;
 import org.openrdf.repository.Repository;
@@ -52,24 +41,18 @@ import org.openrdf.repository.config.RepositoryConfigUtil;
 import org.openrdf.repository.manager.LocalRepositoryManager;
 import org.openrdf.repository.manager.RepositoryManager;
 import org.openrdf.rio.RDFFormat;
-import org.openrdf.rio.RDFHandlerException;
 import org.openrdf.rio.RDFParser;
 import org.openrdf.rio.Rio;
 import org.openrdf.rio.helpers.StatementCollector;
-import org.openrdf.rio.rdfxml.util.RDFXMLPrettyWriter;
+import org.openrdf.rio.turtle.TurtleWriter;
 
-import com.ontotext.ordi.tripleset.impl.TSourceImpl;
-
-import de.dfki.isreal.helpers.Profiler;
-import de.dfki.isreal.semantic.oms.components.TripleStorePlugin;
 import de.dfki.isreal.data.State;
 import de.dfki.isreal.data.impl.SetOfStatementsQueryResultImpl;
 import de.dfki.isreal.data.impl.SetOfStatementsStateImpl;
 import de.dfki.isreal.data.impl.StatementImpl;
 import de.dfki.isreal.data.impl.VariableBindingIterationImpl;
-import de.dfki.isreal.data.impl.VariableBindingIteratorImpl;
-import de.dfki.isreal.helpers.StatementHelpers;
-
+import de.dfki.isreal.helpers.Profiler;
+import de.dfki.isreal.semantic.oms.components.TripleStorePlugin;
 import eu.larkc.core.data.BooleanInformationSet;
 import eu.larkc.core.data.BooleanInformationSetImpl;
 import eu.larkc.core.data.SetOfStatements;
@@ -161,16 +144,21 @@ public class TripleStoreOWLIMImpl implements TripleStorePlugin {
 			Context context) {
 		// TODO before or while monitoring!?
 		semaphore.acquireUninterruptibly();
-		
+				
 		Profiler.startMonitor(this.getClass().getName(), "sparqlConstruct");
 		SetOfStatements st = null;
 		if (theQuery.isConstruct()) {
 			try {
 				String query = theQuery.toString();
 				logger.debug("SPARQL Construct: " + query);
+//				System.out.println(query);
 				GraphQueryResult result = repositoryConn.prepareGraphQuery(
 						QueryLanguage.SPARQL, query).evaluate();
+//				repositoryConn.prepareGraphQuery(QueryLanguage.SPARQL, query).evaluate(turtleWriter);
+				
+//				System.out.println("Evaluation Complete!! Now transfering results..");
 				st = new SetOfStatementsQueryResultImpl(result);
+//				System.out.println("Transfer complete. ready to evaluate.");
 			} catch (Exception e) {
 				logger.error("Error while processing SPARQL Query!", e);
 				e.printStackTrace();
@@ -233,8 +221,7 @@ public class TripleStoreOWLIMImpl implements TripleStorePlugin {
 		return bnd;
 	}
 
-	private void printResult(
-			CloseableIteration<BindingSet, QueryEvaluationException> result) {
+	private void printResult(CloseableIteration<BindingSet, QueryEvaluationException> result) {
 		try {
 			while (result.hasNext()) {// while
 				BindingSet tuple = (BindingSet) result.next();
@@ -559,5 +546,21 @@ public class TripleStoreOWLIMImpl implements TripleStorePlugin {
 		}
 
 	}
+	
 
+	@Override
+	public void closeTS() {
+		try {
+			jetty.stop();
+			man.shutDown();
+			repository.shutDown();
+			repositoryConn.close();
+		} catch (RepositoryException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 }

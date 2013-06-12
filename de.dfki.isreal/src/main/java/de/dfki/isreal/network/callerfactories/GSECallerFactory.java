@@ -925,4 +925,10 @@ public class GSECallerFactory implements GSE {
 		// TODO Auto-generated method stub. Must be implemented, if this functionality is used from a Java component!!!
 		
 	}
+
+	@Override
+	public void closeTS() {
+		// TODO Auto-generated method stub
+		
+	}
 }

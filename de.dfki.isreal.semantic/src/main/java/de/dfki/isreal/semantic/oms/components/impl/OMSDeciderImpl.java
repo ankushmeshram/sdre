@@ -253,4 +253,10 @@ public class OMSDeciderImpl implements OMSDecider {
 		return OTS.getInitialStateFromKB();
 	}
 
+	@Override
+	public void closeTS() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

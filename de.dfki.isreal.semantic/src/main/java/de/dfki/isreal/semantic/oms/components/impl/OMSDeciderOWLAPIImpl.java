@@ -253,5 +253,9 @@ public class OMSDeciderOWLAPIImpl implements OMSDecider {
 	public State getInitialStateFromKB() {
 		return OTS.getInitialStateFromKB();
 	}
+	
+	public void closeTS() {
+		OTS.closeTS();
+	}
 
 }

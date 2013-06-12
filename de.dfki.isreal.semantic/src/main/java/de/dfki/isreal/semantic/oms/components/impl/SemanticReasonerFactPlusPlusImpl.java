@@ -224,30 +224,34 @@ public class SemanticReasonerFactPlusPlusImpl implements SemanticReasonerPlugin 
 
 	public SPARQLDLResult sparqldlProcessing(String query) {
 		Profiler.startMonitor(this.getClass().getName(), "sparqldlSelect");
-
-		boolean b = false;
-		QueryResult result = null;
-		Query sparqlquery = null;
-		
 		SPARQLDLResult dlresult = null;
 		
+		System.out.println("SPARQL-DL QUERY: " + query);
+	
 		try {
-			sparqlquery = Query.create(query);
-			result = engine.execute(sparqlquery);
+			boolean b = false;
+			
+			Query sparqlquery = Query.create(query);
+			QueryResult result = engine.execute(sparqlquery);
+			
+			//debug
+			System.out.println(sparqlquery.isAsk());
+			
 			if(result.ask())
 				b = result.ask();
+						
+			if(sparqlquery.isAsk()) {
+				System.out.println("Answer is: " + b);
+				dlresult = new SPARQLDLResultImpl(b);
+			} else {			
+				VariableBinding bindings = new VariableBindingQueryResultImpl(result);
+				dlresult = new SPARQLDLResultImpl(bindings);
+			}
+			
 		} catch (QueryEngineException e) {
 //			e.printStackTrace();
 		} catch (QueryParserException e) {
 //			e.printStackTrace();
-		}
-		
-		if(sparqlquery.isAsk()) {
-			System.out.println("Answer is: " + b);
-			dlresult = new SPARQLDLResultImpl(b);
-		} else {			
-			VariableBinding bindings = new VariableBindingQueryResultImpl(result);
-			dlresult = new SPARQLDLResultImpl(bindings);
 		}
 		
 		logger.debug("SPARQL-DL query: " + query.toString());
@@ -341,9 +345,9 @@ public class SemanticReasonerFactPlusPlusImpl implements SemanticReasonerPlugin 
 				
 				// Add Class-ObjectProperty-Class relations
 				Fact f = new Fact(
-						     new Entity(clazz.getIRI().toString()),
-						     new Entity(restrictedClass.getIRI().toString()),
-						     new Relation(restrictedProperty.getIRI().toString()),
+						     new Entity(clazz.getIRI().getFragment()),
+						     new Entity(restrictedClass.getIRI().getFragment()),
+						     new Relation(restrictedProperty.getIRI().getFragment()),
 						     0.0F);
 				
 				try {
@@ -364,9 +368,9 @@ public class SemanticReasonerFactPlusPlusImpl implements SemanticReasonerPlugin 
 					// Add Direct Subclasses			
 					// Add Class-SubClassOf-Class relation
 					Fact f = new Fact(
-						     new Entity(subclass.getIRI().toString()),
-						     new Entity(clazz.getIRI().toString()),
-						     new Relation("http://www.w3.org/2000/01/rdf-schema#subClassOf"),
+						     new Entity(subclass.getIRI().getFragment()),
+						     new Entity(clazz.getIRI().getFragment()),
+						     new Relation("subClassOf"), //"http://www.w3.org/2000/01/rdf-schema#subClassOf"),
 						     0.0F);
 					
 					try {
@@ -384,9 +388,9 @@ public class SemanticReasonerFactPlusPlusImpl implements SemanticReasonerPlugin 
 				
 				// Add Individual-Type-Class relation
 				Fact f = new Fact(
-						     new Entity(individual.getIRI().toString()),
-						     new Entity(clazz.getIRI().toString()),
-						     new Relation("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),
+						     new Entity(individual.getIRI().getFragment()),
+						     new Entity(clazz.getIRI().getFragment()),
+						     new Relation("type"), //"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),
 						     0.0F);
 				
 				try {
@@ -402,9 +406,9 @@ public class SemanticReasonerFactPlusPlusImpl implements SemanticReasonerPlugin 
 					
 					// Add Individual-ObjectProperty-Individual relation
 					Fact f2 = new Fact(
-							     new Entity(individual.getIRI().toString()),
-							     new Entity(restrictedIndividual.getIRI().toString()),
-							     new Relation(restrictedProperty.getIRI().toString()),
+							     new Entity(individual.getIRI().getFragment()),
+							     new Entity(restrictedIndividual.getIRI().getFragment()),
+							     new Relation(restrictedProperty.getIRI().getFragment()),
 							     0.0F);
 					
 					try {

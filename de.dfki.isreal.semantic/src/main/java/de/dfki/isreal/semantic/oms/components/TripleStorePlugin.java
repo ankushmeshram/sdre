@@ -7,5 +7,7 @@ import eu.larkc.plugin.reason.Reasoner;
 public interface TripleStorePlugin extends Maintenance, Reasoner {
 
 	State getInitialStateFromKB();
+	
+	void closeTS();
 
 }

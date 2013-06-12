@@ -80,6 +80,7 @@ public class SDREImpl {
 
 	public VariableBinding sparqlSelect(SPARQLQuery theQuery,
 			QoSParameters theQoSParameters) {
+		System.out.println(theQuery.toString());
 		return OMS.sparqlSelect(theQuery, theQoSParameters);
 	}
 	
@@ -218,5 +219,9 @@ public class SDREImpl {
 		}
 		
 		return map;
+	}
+	
+	public void closeTS() {
+		OMS.closeTS();	
 	}
 }

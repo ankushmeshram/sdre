@@ -1,0 +1,100 @@
+Created At Wed Jun 12 21:15:38 CEST 2013
+
+****Check for TBV Fault*****
+
+Initialising ASK Query...
+------ASK Query------
+PREFIX iwo: <http://www.icmwind.com/icmwindontology.owl#>PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+ASK WHERE { ?tbv rdf:type iwo:Thermo_Bypass_Valve. ?tbv iwo:hasStatus ?st. ?st rdf:type iwo:Close. ?st iwo:isValveOpen ?vlv. ?tbv iwo:hasObservation ?obs. ?htcd rdf:type iwo:High_Cooler_Temperature_Difference. ?htcd iwo:hasObservation ?obs. }
+---------------------
+ASK Query Processing time : 116ms
+ASK Query Result - true
+*****************
+
+**** Inserting Faults *****
+
+Initialising CONSTRUCT Query for Insert TBV Faults...
+---- TBV Fault Insert CONSTRUCT Query ----
+PREFIX iwo: <http://www.icmwind.com/icmwindontology.owl#>PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+CONSTRUCT { ?cflt rdf:type iwo:Component_Fault. ?cflt iwo:faultyComponent ?tbv. ?cflt iwo:faultCondition ?sts. ?cflt iwo:faultCondition ?htcd. ?cflt iwo:faultOccurrenceTime ?time. ?cflt iwo:faultLevel ?alm. ?alm rdf:type iwo:Alarm. ?alm iwo:faultMessage "Check the component"^^xsd:string. } WHERE { ?tbv rdf:type iwo:Thermo_Bypass_Valve. ?tbv iwo:hasStatus ?sts. ?sts rdf:type iwo:Close. ?tbv iwo:hasObservation ?obs. ?sts  iwo:hasObservation ?obs. ?htcd rdf:type iwo:High_Cooler_Temperature_Difference. ?htcd iwo:hasObservation ?obs. ?htcd iwo:hasValue ?tmp. BIND(STRAFTER(str(?obs), "#") AS ?o). BIND(STRAFTER(str(?tbv), "#") AS ?t). BIND(IRI(CONCAT("http://www.icmwind.com/icmwindontology.owl#CF_",  CONCAT(CONCAT(?t, "_"), ?o))) AS ?cflt). BIND(IRI(CONCAT("http://www.icmwind.com/icmwindontology.owl#ALM_", CONCAT(CONCAT(?t, "_"), ?o))) AS ?alm). ?obs iwo:hasSamplingTime ?time }
+------------------------------------------
+CONSTRUCT Query TBV Fault Insert Processing time : 7180ms
+Fault Triples Inserted: 10384; CONSTRUCT Query TBV Fault Insert time : 5168ms
+*********************
+
+****Get FCM Configuration****
+
+Initializing SPARQL-DL Query...
+-----QUERY----
+PREFIX iwo: <http://www.icmwind.com/icmwindontology.owl#>
+SELECT ?fcm ?comp ?sen ?type ?class 
+WHERE { 
+Type(?fcm, iwo:Fluid_Condition_Monitoring), 
+PropertyValue(?fcm, iwo:installedAt, ?comp), 
+PropertyValue(?fcm, iwo:consistsOf, ?sen), 
+DirectType(?sen, ?type), 
+Type(?sen, ?class), 
+DirectSubClassOf(?class, iwo:Sensor) }OR WHERE { 
+Type(?fcm, iwo:Fluid_Condition_Monitoring), 
+PropertyValue(?fcm, iwo:installedAt, ?comp), 
+PropertyValue(?fcm, iwo:consistsOf, ?sen), 
+DirectType(?sen, ?type), 
+Type(?sen, ?class), 
+DirectSubClassOf(?class, iwo:Sensor), 
+DirectType(?flt, iwo:Sensor_Fault), 
+PropertyValue(?flt, iwo:faultySensor, ?sen) }
+--------------
+
+SPARQL-DL FCM Config Query Processing time : 21813ms
+
+Processing SPARQL-DL Query Results...
+
+###### SPARQL-DL Query FCM Config Results ######
+STAR Query: Pulsotronic_9000, Component; STAR Component Query Processing time : 1410ms
+~~fcm_marpI - gb_marpI - speed_marpI -- Pulsotronic_9000 -- Speed_Sensor - Gearbox - NO FAULT
+
+STAR Query: ETS_In, Component; STAR Component Query Processing time : 1410ms
+~~fcm_marpI - gb_marpI - ets_in_marpI -- ETS_In -- Temperature_Sensor - Cooler_to_Gearbox - NO FAULT
+
+STAR Query: TOSS_Temperature_Sensor, Component; STAR Component Query Processing time : 1318ms
+~~fcm_marpI - gb_marpI - toss_marpI -- TOSS_Temperature_Sensor -- Temperature_Sensor - Cooler - NO FAULT
+
+STAR Query: ETS_Out, Component; STAR Component Query Processing time : 1248ms
+~~fcm_marpI - gb_marpI - ets_out_marpI -- ETS_Out -- Temperature_Sensor - Oil_Pump_To_Oil_Filter - NO FAULT
+
+STAR Query: MCS_1000, Component; STAR Component Query Processing time : 1274ms
+~~fcm_marpI - gb_marpI - mcs_marpI -- MCS_1000 -- Contamination_Sensor - Oil_Pump_To_Oil_Filter - NO FAULT
+
+STAR Query: CS_1000, Component; STAR Component Query Processing time : 1271ms
+~~fcm_marpI - gb_marpI - cs_marpI -- CS_1000 -- Contamination_Sensor - Oil_Pump_To_Oil_Filter - NO FAULT
+
+STAR Query: HYDAC_Lab, Component; STAR Component Query Processing time : 1287ms
+~~fcm_marpI - gb_marpI - hlb_marpI -- HYDAC_Lab -- HYDAC_Lab - Thermo_Bypass_Valve_To_Cooler - NO FAULT
+
+STAR Query: VL_GW, Component; STAR Component Query Processing time : 1242ms
+~~fcm_marpI - gb_marpI - vl_marpI -- VL_GW -- Differential_Pressure_Sensor - Oil_Filter - NO FAULT
+
+STAR Query: HDA_Saug, Component; STAR Component Query Processing time : 1267ms
+~~fcm_marpI - gb_marpI - saug_marpI -- HDA_Saug -- Pressure_Sensor - Gearbox_To_Oil_Pump - NO FAULT
+
+STAR Query: HDA_In, Component; STAR Component Query Processing time : 1308ms
+~~fcm_marpI - gb_marpI - hda_in_marpI -- HDA_In -- Pressure_Sensor - Cooler_to_Gearbox - NO FAULT
+
+################################################
+
+SPARQL-DL FCM Config Query Result Processing time : 0ms
+****************
+
+****Sensor-Sensor Diagnosis****
+
+****Check for Faults for Same Sensor*****
+
+Initialising ASK Query...
+------ASK Query------
+PREFIX iwo: <http://www.icmwind.com/icmwindontology.owl#>PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+ASK WHERE { ?sflt rdf:type iwo:Sensor_Fault. ?sflt2 rdf:type iwo:Sensor_Fault. ?sflt iwo:faultySensor ?sen. ?sflt2 iwo:faultySensor ?sen. ?sflt iwo:faultCondition ?cond. ?sflt2 iwo:faultCondition ?cond2. ?sflt iwo:faultOccurrenceTime ?time. ?sflt2 iwo:faultOccurrenceTime ?time. FILTER(?cond != ?cond2)}
+---------------------
+ASK Query Processing time : 8ms
+ASK Query Result - false
+*****************
+Load Time - 65435; TBV Time - 12467; FCM Config Time - 34880; Diagnosis Time - 8
