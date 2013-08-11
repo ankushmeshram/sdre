@@ -26,6 +26,7 @@ import org.semanticweb.owl.apibinding.OWLManager;
 import org.semanticweb.owl.model.OWLOntology;
 import org.semanticweb.owl.model.OWLOntologyCreationException;
 import org.semanticweb.owl.model.OWLOntologyManager;
+import org.semanticweb.owlapi.model.OWLClass;
 
 import com.clarkparsia.pellet.sparqldl.jena.SparqlDLExecutionFactory;
 import com.hp.hpl.jena.query.QueryExecution;
@@ -513,6 +514,36 @@ public class SemanticReasonerPelletOWLAPIImpl implements SemanticReasonerPlugin 
 		State state = new OWLStateImpl(os);
 		Profiler.stopMonitor(this.getClass().getName(), "getInitialStateFromKB");
 		return state;
+	}
+
+	@Override
+	public Set<OWLClass> dlEquivalentClasses(String classExp) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<OWLClass> dlSubClasses(String classExp, boolean direct) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<OWLClass> dlEquivalentClasses(OWLClass clas) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<OWLClass> dlSubClasses(OWLClass clas, boolean direct) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public OWLClass getSensorForProperty(OWLClass propClass) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

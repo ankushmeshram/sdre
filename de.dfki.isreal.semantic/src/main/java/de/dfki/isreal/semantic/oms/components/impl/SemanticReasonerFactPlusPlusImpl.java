@@ -18,7 +18,11 @@ import naga.steinertrees.queries.ResultGraph;
 import naga.steinertrees.queries.STARfromMM;
 
 import org.apache.log4j.Logger;
+import org.coode.owlapi.manchesterowlsyntax.ManchesterOWLSyntaxEditorParser;
 import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.expression.OWLEntityChecker;
+import org.semanticweb.owlapi.expression.ParserException;
+import org.semanticweb.owlapi.expression.ShortFormEntityChecker;
 import org.semanticweb.owlapi.model.ClassExpressionType;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClass;
@@ -35,12 +39,17 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 import org.semanticweb.owlapi.reasoner.ConsoleProgressMonitor;
 import org.semanticweb.owlapi.reasoner.InferenceType;
+import org.semanticweb.owlapi.reasoner.Node;
 import org.semanticweb.owlapi.reasoner.NodeSet;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.reasoner.OWLReasonerConfiguration;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 import org.semanticweb.owlapi.reasoner.SimpleConfiguration;
+import org.semanticweb.owlapi.util.BidirectionalShortFormProvider;
+import org.semanticweb.owlapi.util.BidirectionalShortFormProviderAdapter;
+import org.semanticweb.owlapi.util.ShortFormProvider;
 import org.semanticweb.owlapi.util.SimpleIRIMapper;
+import org.semanticweb.owlapi.util.SimpleShortFormProvider;
 
 import uk.ac.manchester.cs.factplusplus.owlapiv3.FaCTPlusPlusReasonerFactory;
 import de.derivo.sparqldlapi.Query;
@@ -73,6 +82,33 @@ public class SemanticReasonerFactPlusPlusImpl implements SemanticReasonerPlugin 
 	private QueryEngine engine;
 	
 	Set<Fact> graph = new TreeSet<Fact>();
+		
+	ShortFormProvider shortFormProvider = new SimpleShortFormProvider();
+	OWLOntologyManager dlmanager = OWLManager.createOWLOntologyManager();
+    OWLDataFactory dlfactory = dlmanager.getOWLDataFactory();
+    OWLOntology dlontology = null;
+    Set<OWLOntology> importsClosure = null;
+    BidirectionalShortFormProvider bidiShortFormProvider = null;
+    OWLReasonerFactory dlreasonerFactory = new FaCTPlusPlusReasonerFactory();
+    ConsoleProgressMonitor dlprogressMonitor = new ConsoleProgressMonitor();
+	OWLReasoner dlreasoner = null;
+
+//    man.addIRIMapper(new SimpleIRIMapper(ontiri, dociri));
+    
+    
+//    try {
+//		OWLOntology dlontology = dlmanager.loadOntology(ontiri);
+//	} catch (OWLOntologyCreationException e) {
+//		e.printStackTrace();
+//	}
+    
+//    Set<OWLOntology> importsClosure = dlontology.getImportsClosure();
+    
+//    BidirectionalShortFormProvider bidiShortFormProvider = new BidirectionalShortFormProviderAdapter(dlmanager, importsClosure, shortFormProvider);
+        	
+//	OWLReasoner dlreasoner = reasonerFactory.createReasoner(dlontology, dlconfig);
+//	dlreasoner.precomputeInferences(InferenceType.CLASS_ASSERTIONS, InferenceType.CLASS_ASSERTIONS, InferenceType.OBJECT_PROPERTY_ASSERTIONS, InferenceType.OBJECT_PROPERTY_HIERARCHY);
+		
 	
 	public SemanticReasonerFactPlusPlusImpl() {
 		manager =  OWLManager.createOWLOntologyManager();
@@ -287,6 +323,8 @@ public class SemanticReasonerFactPlusPlusImpl implements SemanticReasonerPlugin 
 		
 		initPluginReasoner();
 		
+		initDLQueryReasoner();
+		
 		Profiler.stopMonitor(this.getClass().getName(), "initPluginFromFiles");
 	}
 	
@@ -426,6 +464,27 @@ public class SemanticReasonerFactPlusPlusImpl implements SemanticReasonerPlugin 
 
 	}
 
+	private void initDLQueryReasoner() {
+		IRI ontiri = IRI.create("http://www.icmwind.com/icmwindontology.owl");
+		IRI dociri = IRI.create("file:C:/Users/anme05/sdre_icmiwnd/icmwind/res/data/icmwindontology_org.owl");
+		dlmanager.addIRIMapper(new SimpleIRIMapper(ontiri, dociri));
+	       
+	    try {
+			dlontology = dlmanager.loadOntology(ontiri);
+		} catch (OWLOntologyCreationException e) {
+			e.printStackTrace();
+		}
+	    
+	    importsClosure = dlontology.getImportsClosure();
+	    
+	    bidiShortFormProvider = new BidirectionalShortFormProviderAdapter(dlmanager, importsClosure, shortFormProvider);
+
+		OWLReasonerConfiguration dlconfig = new SimpleConfiguration(dlprogressMonitor);
+	    dlreasoner = dlreasonerFactory.createReasoner(dlontology, dlconfig);
+		dlreasoner.precomputeInferences(InferenceType.CLASS_ASSERTIONS, InferenceType.CLASS_ASSERTIONS, InferenceType.OBJECT_PROPERTY_ASSERTIONS, InferenceType.OBJECT_PROPERTY_HIERARCHY);
+		
+	}
+	
 	public void insert(List<de.dfki.isreal.data.Statement> al) {
 		Profiler.startMonitor(this.getClass().getName(), "insert");
 //		for (de.dfki.isreal.data.Statement a : al) {
@@ -494,6 +553,86 @@ public class SemanticReasonerFactPlusPlusImpl implements SemanticReasonerPlugin 
 		Profiler.stopMonitor(this.getClass().getName(), "update");
 	}
 
+	public Set<OWLClass> dlEquivalentClasses(String classExp) {
+		OWLClassExpression classExpression = parseClassExpressionString(classExp);
+		Node<OWLClass> result =  dlreasoner.getEquivalentClasses(classExpression);
+		Set<OWLClass> resultSet = result.getEntities();
+		
+		return resultSet;
+	}
+	
+	
+	public Set<OWLClass> dlEquivalentClasses(OWLClass clas) {
+		Node<OWLClass> result =  dlreasoner.getEquivalentClasses(clas);
+		Set<OWLClass> resultSet = result.getEntities();
+		
+		return resultSet;
+	}
+	
+	public Set<OWLClass> dlSubClasses(String classExp, boolean direct) {
+		OWLClassExpression classExpression = parseClassExpressionString(classExp);
+		NodeSet<OWLClass> result =  dlreasoner.getSubClasses(classExpression, direct);
+		Set<OWLClass> resultSet = result.getFlattened();
+		
+		return resultSet;
+	}
+	
+	public Set<OWLClass> dlSubClasses(OWLClass clas, boolean direct) {
+		NodeSet<OWLClass> result =  dlreasoner.getSubClasses(clas, direct);
+		Set<OWLClass> resultSet = result.getFlattened();
+		
+		return resultSet;
+	}
+		
+ 	private OWLClassExpression parseClassExpressionString(String classExpressionString) {
+		ManchesterOWLSyntaxEditorParser parser = new ManchesterOWLSyntaxEditorParser(dlfactory, classExpressionString);
+		parser.setDefaultOntology(dlontology);
+		
+		OWLEntityChecker entityChecker = new ShortFormEntityChecker(bidiShortFormProvider);
+		parser.setOWLEntityChecker(entityChecker);
+		
+		OWLClassExpression classExpression = null;
+		
+		try {
+			classExpression = parser.parseClassExpression();
+		} catch (ParserException e) {
+			e.printStackTrace();
+		}
+		
+		return classExpression;
+	}
+	
+    public OWLClass getSensorForProperty(OWLClass propClass) {
+    	String classExp2 = "Sensor and observes some " + propClass.getIRI().getFragment();
+    	OWLClassExpression clasexp2 = parseClassExpressionString(classExp2);
+		
+		OWLClass sensorClass = null;
+		
+		NodeSet<OWLClass> sens = dlreasoner.getSubClasses(clasexp2, true);
+		Set<OWLClass> sensr = sens.getFlattened();
+							
+		for(OWLClass clazz : sensr) {
+			OWLObjectProperty observesProp = dlfactory.getOWLObjectProperty(IRI.create("http://www.icmwind.com/icmwindontology.owl#observes"));
+			
+			for(OWLSubClassOfAxiom ax : dlontology.getSubClassAxiomsForSubClass(clazz)) {
+				ClassExpressionType someValuesFrom = ClassExpressionType.OBJECT_SOME_VALUES_FROM;
+				
+				OWLClassExpression superCls = ax.getSuperClass();
+				ClassExpressionType type = superCls.getClassExpressionType();
+				
+				if(type.compareTo(someValuesFrom) == 0) {
+					OWLObjectSomeValuesFrom desc = (OWLObjectSomeValuesFrom) superCls;
+					if(desc.getProperty().equals(observesProp)) {
+						if(desc.getFiller().asOWLClass().equals(propClass))
+							sensorClass = clazz;
+					}
+				}
+			}
+		}
+		
+		return sensorClass;
+    } 
+	
 	/**
 	 * This method lists all statements in the KB of the reasoner. Since the
 	 * reasoner materializes all inferences it takes time to create all triples.
@@ -564,5 +703,8 @@ public class SemanticReasonerFactPlusPlusImpl implements SemanticReasonerPlugin 
 		Profiler.stopMonitor(this.getClass().getName(), "getInitialStateFromKB");
 		return state;
 	}
+	
+	
+	
 
 }

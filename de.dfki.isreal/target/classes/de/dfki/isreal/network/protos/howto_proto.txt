@@ -1,0 +1,16 @@
+The protobuffer project for JavaScript lies in /home/stenes/Isreal/protojs/protojs/
+
+There the original .proto file lies in ./protocol
+The builded JavaScript can be found in ./output
+
+To build all .proto files in ./protocol to JavaScript code in ./output use make.
+
+Just run make in /home/stenes/Isreal/protojs/protojs/.
+
+Generating java code from google protobuffers can be made as follows:
+
+Copy the .proto file from ./protocol to 
+/home/stenes/workspace/de.dfki.isreal/src/de/dfki/isreal/network/protos/
+
+run 
+stenes@isreal-desktop:~/workspace/de.dfki.isreal/src$ /usr/bin/protoc --proto_path=de/dfki/isreal/network/protos --java_out=/home/stenes/workspace/de.dfki.isreal/src/ de/dfki/isreal/network/protos/exchange_data.proto

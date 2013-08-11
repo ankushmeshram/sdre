@@ -4,9 +4,15 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.openrdf.model.Value;
+import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLClassExpression;
+import org.semanticweb.owlapi.model.OWLObjectProperty;
+import org.semanticweb.owlapi.reasoner.Node;
+import org.semanticweb.owlapi.reasoner.NodeSet;
 
 import de.dfki.isreal.data.SPARQLDLResult;
 import de.dfki.isreal.data.State;
@@ -220,6 +226,27 @@ public class SDREImpl {
 		
 		return map;
 	}
+	
+	public Set<OWLClass> dlEquivalentClasses(String classExp) {
+		return OMS.dlEquivalentClasses(classExp);
+	}
+	
+	public Set<OWLClass> dlEquivalentClasses(OWLClass clas) {
+		return OMS.dlEquivalentClasses(clas);
+	}
+	
+	public Set<OWLClass> dlSubClasses(String classExp, boolean direct) {
+		return OMS.dlSubClasses(classExp, direct);
+	}
+	
+	public Set<OWLClass> dlSubClasses(OWLClass clas, boolean direct) {
+		return OMS.dlSubClasses(clas, direct);
+	}
+	
+	public OWLClass getSensorForProperty(OWLClass propClass) {
+		return OMS.getSensorForProperty(propClass);
+	}
+	
 	
 	public void closeTS() {
 		OMS.closeTS();	

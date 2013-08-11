@@ -1,0 +1,91 @@
+package de.dfki.isreal.data;
+
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import de.dfki.isreal.data.impl.ConditionalEffect;
+
+
+/**
+ * This class is the internal ISReal representation of a semantic web service.
+ * The wrapper provide all necessary information the ISReal platform needs from
+ * a semantic service.
+ * 
+ * It is designed according to the OWL-S service format, but should be possible
+ * to write implementations also for SAWSDL or WSMO services.
+ * @author stenes
+ *
+ */
+public interface ServiceWrapper extends Serializable{
+	
+	public static int INTERACTION_SERVICE = 1;
+	public static int SE_SERVICE = 2;
+	public static int AGENT_ACTION_SERVICE = 3;
+	public static int COMPONENT_SERVICE = 4;
+	public static int CONTEXT_RULE = 5;
+	
+	/**
+	 * Returns the uri of the service as string.
+	 */
+	public String getServiceURI();
+	
+	/**
+	 * Returns the human readable description of the Service as a String.
+	 */
+	public String getDescription();
+	
+	/**
+	 * Returns the input parameter URIs of the service as list.
+	 */
+	public List<String> getInputs();
+	
+	/**
+	 * Returns the output parameter URIs of the service as list.
+	 */
+	public List<String> getOutputs();
+	
+	/**
+	 * Returns the local parameter URIs of the service as list.
+	 */
+	public List<String> getLocals();
+	
+	/**
+	 * Returns a String for every expression of the precondition of the service.
+	 * We Assume this to be in PDDXML syntax.
+	 */
+	public List<String> getPreconditionExpression();
+	
+	/**
+	 * Return all (Conditional) Effects constructs of the service.
+	 */
+	public List<ConditionalEffect> getEffects();
+	
+	/**
+	 * Validate the service
+	 */
+	public boolean isValid();
+
+	/**
+	 * return the type of the "self" input parameter
+	 */
+	public String getSelfType();
+
+	/**
+	 * return the name of the self parameter in this servcie/rule
+	 */
+	public String getSelfName();
+	
+	/**
+	 * return a list of all parameters of this service/rule
+	 */
+	public List<Parameter> getParameterList();
+
+	/**
+	 * 
+	 * @return ISReal type of the service (one of INTERACTION_SERVICE,
+	 * SE_SERVICE, AGENT_ACTION_SERVICE, COMPONENT_SERVICE, CONTEXT_RULE)
+	 */
+	public int getServiceType();
+}

@@ -1,0 +1,6 @@
+<module>
+	<inherits name='com.google.gwt.user.User'/>
+	<source path="sdre"></source>
+	<source path="sdre.impl"></source>
+	<source path="sdre.test"></source>
+</module>

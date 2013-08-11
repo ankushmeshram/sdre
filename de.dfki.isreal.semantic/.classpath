@@ -18,7 +18,7 @@
 	<classpathentry kind="lib" path="libs/jetty-http-8.0.0.M0.jar"/>
 	<classpathentry kind="lib" path="libs/jetty-io-8.0.0.M0.jar"/>
 	<classpathentry kind="lib" path="libs/jetty-server-8.0.0.M0.jar"/>
-	<classpathentry kind="lib" path="libs/jetty-util-8.0.0.M0.jar"/>
+	<classpathentry kind="lib" path="libs/jetty-util-8.0.0.M0.jar" sourcepath="C:/Users/anme05/.m2/repository/org/eclipse/jetty/jetty-util/8.0.0.M0/jetty-util-8.0.0.M0-sources.jar"/>
 	<classpathentry kind="lib" path="libs/jetty-websocket-8.0.0.M0.jar"/>
 	<classpathentry kind="lib" path="libs/log4j-1.2.15.jar"/>
 	<classpathentry kind="lib" path="libs/naga.steinertrees.queries-0.0.1.jar"/>
@@ -38,6 +38,6 @@
 	<classpathentry kind="lib" path="/de.dfki.sdre/sparqldl-api.jar"/>
 	<classpathentry kind="lib" path="owlim-lite-5.1.jar"/>
 	<classpathentry kind="lib" path="openrdf-sesame-2.6.6-onejar.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/de.dfki.isreal"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/de.dfki.isreal"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

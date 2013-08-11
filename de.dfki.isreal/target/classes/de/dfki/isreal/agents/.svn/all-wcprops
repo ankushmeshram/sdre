@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/IsReal/!svn/ver/1986/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/agents
+END
+PerceptionListenerInterface.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/agents/PerceptionListenerInterface.java
+END
+PerceptionData.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/agents/PerceptionData.java
+END
+ExecutionComponent.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/agents/ExecutionComponent.java
+END
+AgentWorker.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/agents/AgentWorker.java
+END
+PerceptionQueue.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/agents/PerceptionQueue.java
+END
+ISRealAgent.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/IsReal/!svn/ver/1986/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/agents/ISRealAgent.java
+END
+ActionInterface.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/agents/ActionInterface.java
+END

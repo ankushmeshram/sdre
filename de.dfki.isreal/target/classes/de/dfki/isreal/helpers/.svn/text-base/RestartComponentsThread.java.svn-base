@@ -1,0 +1,54 @@
+package de.dfki.isreal.helpers;
+
+import org.apache.log4j.Logger;
+
+import de.dfki.isreal.main.ISRealSetupInitializer;
+
+public class RestartComponentsThread extends Thread {
+	
+	private Logger					logger;
+	
+	private ISRealSetupInitializer	initializer;
+	
+	public RestartComponentsThread(ISRealSetupInitializer initializer) {
+		logger				= Logger.getLogger(this.getClass());
+		this.initializer	= initializer;
+	}
+	
+	@Override
+	public void run() {
+		try {
+			// wait until all processes are terminated
+			boolean restart = true;
+			for(String processName : initializer.getProcesses()) {
+				// 1 - close, 2 - restart signal
+				int exitCode = initializer.getProcess(processName).waitFor();
+				// restart
+				if(exitCode == 2) {
+					logger.warn("Process " + processName + " terminated with exit code 2 (restart signal).");
+					continue;
+				}
+				// close
+				else if(exitCode == 1) {
+					logger.warn("Process " + processName + " terminated with exit code 1 (close).");
+				}
+				else {
+					logger.warn("Process " + processName + " terminated with exit code " + exitCode + " (unknown).");
+				}
+				restart = false;
+			}
+				
+			// restart setup procedure
+			if(restart) {
+				logger.warn("All processes sent restart signal. Re-initialization is starting now...");
+				initializer.initializeSetup();
+			}
+			else {
+				logger.warn("All processes terminated, at least one without sending a restart signal.");
+			}
+		}
+		catch(InterruptedException e) {
+			logger.error(e);
+		}
+	}
+}

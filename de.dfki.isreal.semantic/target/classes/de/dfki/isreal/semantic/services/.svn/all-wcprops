@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/IsReal/!svn/ver/2089/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services
+END
+SEServiceInvokationQueue.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/IsReal/!svn/ver/2017/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/SEServiceInvokationQueue.java
+END
+ServiceExecutor.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/ServiceExecutor.java
+END
+WaiterThread.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/WaiterThread.java
+END
+OutputQueue.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/IsReal/!svn/ver/2017/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/OutputQueue.java
+END
+ServiceRegistryCaching.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/IsReal/!svn/ver/2017/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/ServiceRegistryCaching.java
+END
+SEServiceImplementationThread.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/SEServiceImplementationThread.java
+END
+ServiceInvokationQueue.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/IsReal/!svn/ver/2017/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/ServiceInvokationQueue.java
+END
+ServicePool.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/IsReal/!svn/ver/2089/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/ServicePool.java
+END
+ServiceRegistryImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/IsReal/!svn/ver/2088/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/ServiceRegistryImpl.java
+END
+ServiceExecutionThreadImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/IsReal/!svn/ver/2017/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/ServiceExecutionThreadImpl.java
+END
+ServiceImplementationThread.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/IsReal/!svn/ver/2028/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/services/ServiceImplementationThread.java
+END

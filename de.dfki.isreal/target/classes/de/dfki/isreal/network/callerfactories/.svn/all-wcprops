@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/IsReal/!svn/ver/2010/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/callerfactories
+END
+AgentEnvCallerFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/IsReal/!svn/ver/2010/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/callerfactories/AgentEnvCallerFactory.java
+END
+GSECallerFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/IsReal/!svn/ver/2010/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/callerfactories/GSECallerFactory.java
+END
+CallerFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/IsReal/!svn/ver/2010/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/callerfactories/CallerFactory.java
+END
+GraphicsCallerFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/callerfactories/GraphicsCallerFactory.java
+END
+DemonstratorCallerFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/callerfactories/DemonstratorCallerFactory.java
+END

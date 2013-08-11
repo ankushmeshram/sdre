@@ -2,6 +2,10 @@ package de.dfki.isreal.subcomponents;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Set;
+
+import org.semanticweb.owlapi.model.OWLClass;
+
 
 import de.dfki.isreal.data.SPARQLDLResult;
 import de.dfki.isreal.data.Statement;
@@ -61,6 +65,13 @@ public interface SemanticReasoner {
 	 * @return
 	 */
 	public SPARQLDLResult sparqldlProcessing(String query);
+	
+	public Set<OWLClass> dlEquivalentClasses(String classExp);
+	public Set<OWLClass> dlEquivalentClasses(OWLClass clas);
+	public Set<OWLClass> dlSubClasses(String classExp, boolean direct);
+	public Set<OWLClass> dlSubClasses(OWLClass clas, boolean direct);
+	public OWLClass getSensorForProperty(OWLClass propClass);
+	
 	
 	/**
 	 * Forces the reasoner plugin to classify his knowledge base.

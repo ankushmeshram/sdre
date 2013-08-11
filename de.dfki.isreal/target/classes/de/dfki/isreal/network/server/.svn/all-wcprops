@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/server
+END
+ISRealSocketServer.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/server/ISRealSocketServer.java
+END
+GlobalSEXmlRpcServer.properties
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/server/GlobalSEXmlRpcServer.properties
+END
+ISRealTooTallNateWebSocketServer.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/server/ISRealTooTallNateWebSocketServer.java
+END
+ISRealJettyWebSocketServer.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/server/ISRealJettyWebSocketServer.java
+END

@@ -6,8 +6,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
+import org.semanticweb.owl.model.OWLClass;
 
 import de.dfki.isreal.network.CallerThread;
 import de.dfki.isreal.network.ISRealMessageFactory;
@@ -204,8 +206,7 @@ public class GSECallerFactory implements GSE {
 	/**
 	 * TODO Implement messages for relational requests and answers.
 	 */
-	public List<List<Statement>> computeTopRelationalTrees(
-			List<String> entities, int i, boolean props) {
+	public List<List<Statement>> computeTopRelationalTrees(List<String> entities, int i, boolean props) {
 		if (SocketRegistry.isRoleRegistered(gseRoleName)) {
 			logger.error("NOT YET IMPLEMENTED!");
 		} else {
@@ -931,4 +932,43 @@ public class GSECallerFactory implements GSE {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public Set<org.semanticweb.owlapi.model.OWLClass> dlEquivalentClasses(
+			String classExp) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<org.semanticweb.owlapi.model.OWLClass> dlEquivalentClasses(
+			org.semanticweb.owlapi.model.OWLClass clas) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<org.semanticweb.owlapi.model.OWLClass> dlSubClasses(
+			String classExp, boolean direct) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<org.semanticweb.owlapi.model.OWLClass> dlSubClasses(
+			org.semanticweb.owlapi.model.OWLClass clas, boolean direct) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public org.semanticweb.owlapi.model.OWLClass getSensorForProperty(
+			org.semanticweb.owlapi.model.OWLClass propClass) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+	
 }

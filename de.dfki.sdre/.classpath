@@ -6,7 +6,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/de.dfki.isreal"/>
 	<classpathentry kind="lib" path="/de.dfki.isreal.semantic/libs/naga.steinertrees.queries-0.0.1.jar"/>
 	<classpathentry kind="lib" path="owlapi-distribution-3.4.4-bin.jar"/>
-	<classpathentry kind="lib" path="FaCTpp-OWLAPI-3.4-v1.6.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="FaCTpp-OWLAPI-3.4-v1.6.2.jar"/>
 	<classpathentry kind="lib" path="sparqldl-api.jar"/>
 	<classpathentry kind="lib" path="sparqldl-api-javadoc.jar"/>
 	<classpathentry kind="lib" path="sparqldl-api-src.jar"/>

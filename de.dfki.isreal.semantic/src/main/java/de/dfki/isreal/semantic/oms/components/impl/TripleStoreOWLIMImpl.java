@@ -284,6 +284,8 @@ public class TripleStoreOWLIMImpl implements TripleStorePlugin {
 		}
 		try {
 			repositoryConn.commit();
+			//debug
+			logger.info("Commiting");
 		} catch (RepositoryException e) {
 			e.printStackTrace();
 			logger.error("Error while processing insert!", e);

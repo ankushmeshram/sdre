@@ -6,6 +6,7 @@ import java.util.Set;
 
 import org.semanticweb.owl.model.OWLIndividual;
 
+
 /**
  * This class is used in the service implementation to represent a conditional
  * effect.

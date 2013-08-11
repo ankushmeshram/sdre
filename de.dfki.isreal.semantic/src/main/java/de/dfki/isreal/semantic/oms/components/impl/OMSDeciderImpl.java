@@ -5,9 +5,11 @@ import java.io.FileFilter;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.openrdf.model.URI;
+import org.semanticweb.owlapi.model.OWLClass;
 
 import com.franz.agbase.AllegroGraphException;
 
@@ -257,6 +259,36 @@ public class OMSDeciderImpl implements OMSDecider {
 	public void closeTS() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Set<OWLClass> dlEquivalentClasses(String classExp) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<OWLClass> dlSubClasses(String classExp, boolean direct) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<OWLClass> dlEquivalentClasses(OWLClass clas) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<OWLClass> dlSubClasses(OWLClass clas, boolean direct) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public OWLClass getSensorForProperty(OWLClass propClass) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

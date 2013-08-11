@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/IsReal/!svn/ver/2031/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/oms/components/impl
+END
+OMSDeciderImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/oms/components/impl/OMSDeciderImpl.java
+END
+ContinousQueryRegistry.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/oms/components/impl/ContinousQueryRegistry.java
+END
+DefaultHTTPHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/oms/components/impl/DefaultHTTPHandler.java
+END
+OMSConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/oms/components/impl/OMSConfig.java
+END
+CacheImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/oms/components/impl/CacheImpl.java
+END
+OWLIMSnapshotHTTPHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/IsReal/!svn/ver/2007/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/oms/components/impl/OWLIMSnapshotHTTPHandler.java
+END
+TripleStoreOWLIMImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/IsReal/!svn/ver/2031/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/oms/components/impl/TripleStoreOWLIMImpl.java
+END
+TripleStoreAllegroGraphImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/oms/components/impl/TripleStoreAllegroGraphImpl.java
+END
+SemanticReasonerPelletImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/oms/components/impl/SemanticReasonerPelletImpl.java
+END
+PlanningEnvironmentImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/IsReal/!svn/ver/1716/projects/de.dfki.isreal.semantic/src/main/java/de/dfki/isreal/semantic/oms/components/impl/PlanningEnvironmentImpl.java
+END

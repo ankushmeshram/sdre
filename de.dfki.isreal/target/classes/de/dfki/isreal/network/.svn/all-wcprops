@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/IsReal/!svn/ver/2074/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network
+END
+Message.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/Message.java
+END
+KeepAlive.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/IsReal/!svn/ver/1991/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/KeepAlive.java
+END
+MessageQueue.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/MessageQueue.java
+END
+CallerThread.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/IsReal/!svn/ver/2009/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/CallerThread.java
+END
+ISRealMessageFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/ISRealMessageFactory.java
+END
+ListenerRegistry.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/IsReal/!svn/ver/2009/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/network/ListenerRegistry.java
+END

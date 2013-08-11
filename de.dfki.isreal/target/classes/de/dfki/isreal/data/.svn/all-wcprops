@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data
+END
+State.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/State.java
+END
+Parameter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/Parameter.java
+END
+PlannerOutput.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/PlannerOutput.java
+END
+SPARQLDLResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/SPARQLDLResult.java
+END
+ServiceWrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/ServiceWrapper.java
+END
+Statement.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/Statement.java
+END
+BindingList.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/IsReal/!svn/ver/1712/projects/de.dfki.isreal/src/main/java/de/dfki/isreal/data/BindingList.java
+END
